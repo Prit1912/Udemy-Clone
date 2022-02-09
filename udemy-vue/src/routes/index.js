@@ -20,8 +20,6 @@ import MyCourses from "../views/user/MyCourses.vue";
 import FullCourse from "../views/user/EnrolledCourse.vue"
 import AllCourses from "../views/courses/AllCourses.vue";
 import CourseInfo from "../views/courses/CourseInfo.vue";
-import CategoryWiseCourses from "../views/courses/CategoryWiseCourses.vue";
-import SubCateWiseCourses from "../views/courses/SubCateWiseCourses.vue";
 
 // instructor routes
 import InstMain from "../views/instructor/Main.vue";
@@ -125,16 +123,6 @@ const routes = [
         path: "courses",
         name: "allCourses",
         component: AllCourses,
-      },
-      {
-        path: 'courses/category/:cname',
-        name: 'categoryWiseCourses',
-        component: CategoryWiseCourses,
-      },
-      {
-        path: 'courses/category/:cname/subcategory/:sname',
-        name: 'subCategoryWiseCourses',
-        component: SubCateWiseCourses
       },
       {
         path: "courses/:id",

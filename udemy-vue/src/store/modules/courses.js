@@ -5,13 +5,14 @@ export const courses = {
     categoryId: null,
     subCategoryId: null,
     percentage: 0,
-    courses: [], // for courses id
+    courses: [],
     allCourses: [],
     updatedCourses: [],
     filteredCourses: [],
     searchedCourses: [],
     searchedString: "",
     filterApplied: false,
+    selectedFilter: "all"
   },
   mutations: {
     setCategoryId(state, cId) {
@@ -41,6 +42,19 @@ export const courses = {
       })
       if(!idArr.includes(course.id)){
         state.courses.push(course)
+      }else{
+        state.courses.map((c)=>{
+          if(c.id == course.id){
+            for(let video of course.videos){
+              for(let vid of c.videos){
+                if(video.url == vid.url){
+                  video.progressPer = vid.progressPer
+                }
+              }
+            }
+            c.videos = course.videos;
+          }
+        })
       }
     },
     setAllCourses(state,courses){
@@ -61,6 +75,9 @@ export const courses = {
     },
     setFilterStatus(state,val){
       state.filterApplied = val
+    },
+    setSelectedFilter(state,val){
+      state.selectedFilter = val;
     }
   },
   actions: {
@@ -113,6 +130,11 @@ export const courses = {
     // set status of courses are filtered or not
     setFilterStatus({commit}, val){
       commit('setFilterStatus', val)
+    },
+
+    // set selected filter
+    setSelectedFilter({commit},val){
+      commit('setSelectedFilter', val)
     }
   },
 };

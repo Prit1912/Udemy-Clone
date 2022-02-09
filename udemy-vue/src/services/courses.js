@@ -109,7 +109,25 @@ class courseService{
 
     // update course image
     updateCourseImage(id, file){
-        return http.put(`api/courses/inst-courses/${id}/update-image`,file,{
+        return http.put(`api/courses/inst-courses/${id}/update/image`,file,{
+            headers:{
+                'x-access-token': store.state.user.token,
+            }
+        })
+    }
+
+    // update resource file
+    updateCourseResource(id,file){
+        return http.put(`api/courses/inst-courses/${id}/update/resources`,file,{
+            headers:{
+                'x-access-token': store.state.user.token,
+            }
+        })
+    }
+
+    // update video files
+    updateCourseVideos(id,file){
+        return http.put(`api/courses/inst-courses/${id}/update/videos`, file,{
             headers:{
                 'x-access-token': store.state.user.token,
             }

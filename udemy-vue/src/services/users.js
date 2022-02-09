@@ -84,7 +84,6 @@ class userServices{
                 'x-access-token': store.state.user.token
             }
         })
-
     }
 
     // review course

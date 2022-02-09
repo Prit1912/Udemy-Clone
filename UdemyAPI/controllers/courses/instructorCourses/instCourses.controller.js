@@ -92,6 +92,16 @@ class courseController{
       const courseDomain = new CourseDomain();
       courseDomain.changeCourseImage(req,res);
     }
+
+    static async changeResources(req,res){
+      const courseDomain = new CourseDomain();
+      courseDomain.changeCourseResources(req,res);
+    }
+
+    static async changeVideos(req,res){
+      const courseDomain = new CourseDomain();
+      courseDomain.changeCourseVideos(req,res);
+    }
 }
 
 router.use(auth,permit(role.instructor, role.admin))
@@ -118,8 +128,14 @@ router.get('/:id/reviews', courseController.seeReview);
 // get course by id
 router.get('/:id',courseController.getInstCourseById);
 
+// update course resources
+router.put('/:id/update/resources',upload.fields([{name: 'resources', maxCount: 1}]),courseController.changeResources)
+
 // update course image
-router.put('/:id/update-image',upload.fields([{name: 'image', maxCount: 1}]),courseController.changeImage)
+router.put('/:id/update/image',upload.fields([{name: 'image', maxCount: 1}]),courseController.changeImage)
+
+// update course videos
+router.put('/:id/update/videos', upload.fields([{name: 'videos',maxCount: 8}]), courseController.changeVideos)
 
 // update specific course by id
 router.put('/:id',courseController.updateInstCourse)

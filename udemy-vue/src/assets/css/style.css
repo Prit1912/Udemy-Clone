@@ -1,3 +1,5 @@
+
+
 .error {
   color: red;
 }
@@ -20,7 +22,7 @@ nav {
   box-shadow: 0px 3px 5px rgb(211, 210, 210);
   position: sticky !important;
   top: 0px;
-  z-index: 1;
+  z-index: 100;
   line-height: 6vh;
 }
 a {
@@ -31,6 +33,32 @@ a {
 li {
   padding: 5px;
 }
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  opacity: 1;
+}
+
+.tooltiptext {
+  visibility: hidden;
+  min-width: 60px;
+  background-color: blueviolet;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  left: 0px;
+  top: 30px;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
 .logo {
   animation: rotate 3.5s linear infinite;
 }

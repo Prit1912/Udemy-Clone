@@ -1,20 +1,21 @@
 <template>
-  <div class="container my-2">
+  <div class="container">
+    <div class="top-head bg-dark p-3">
     <h2 style="color: blueviolet" class="border-bottom border-2 my-3">
       Courses
     </h2>
     <div class="row">
-      <div class="col-2">
-        <button class="btn btn-dark" @click="getAllCourses">All Courses</button>
+      <div class="col-sm-2 col-12">
+        <button class="btn btn-outline-light" @click="getAllCourses">All Courses</button>
       </div>
-      <div class="col-10">
+      <div class="col-sm-4 col-12">
         <SearchBar @query="searchCourse" />
       </div>
     </div>
     <br /><br />
     <CategorySubCateSelect @courses="getCourses" />
     <br /><br />
-
+</div>
     <div class="row">
       <div class="col-md-3">
         <h3 class="mt-5 border-bottom" style="color: blueviolet">Filter</h3>
@@ -70,7 +71,7 @@
           <h3 class="my-5">No Course Found</h3>
         </div>
         <div v-else v-for="course in newCourses" :key="course._id">
-          <div class="row course my-5 border border-3">
+          <div class="row mx-1 mx-sm-0 course my-5 border border-3">
             <span v-if="course.offerPrice" class="offerCourse">
               <h5><span class="badge bg-primary">Offer</span></h5>
             </span>
@@ -175,7 +176,7 @@ export default {
       pages: null,
       queryString: "",
       filteredCourses: "",
-      filter: "",
+      filter: this.$store.state.courses.selectedFilter,
       filterApplied: false,
       enrolledCourses: [],
       cartItems: [],
@@ -195,7 +196,9 @@ export default {
       for (let course of courses) {
         this.enrolledCourses.push(course._id);
       }
-    });
+    }).catch((err)=>{
+      console.log(err.response)
+    })
 
     // get list of cart items
     cartData
@@ -225,7 +228,7 @@ export default {
 
     // get all courses
 
-    // if category and subcategory is selected then display those courses
+    // get all courses when page user first time visit page
     if (this.$store.state.courses.updatedCourses.length == 0) {
       this.$store.state.courses.categoryId = null;
       this.$store.state.courses.subCategoryId = null;
@@ -265,7 +268,7 @@ export default {
       max: 15,
       speed: 400,
       glare: true,
-      "max-glare": 0.4,
+      "max-glare": 0,
     });
   },
 
@@ -375,10 +378,13 @@ export default {
         filteredCourses = this.$store.state.courses.searchedCourses.filter(
           (course) => {
             if (this.filter == "all") {
+              this.$store.dispatch('courses/setSelectedFilter',"all")
               return course;
             } else if (this.filter == "paid") {
+              this.$store.dispatch('courses/setSelectedFilter',"paid")
               return course.price > 0;
             } else {
+              this.$store.dispatch('courses/setSelectedFilter',"free")
               return course.price == undefined;
             }
           }
@@ -387,10 +393,13 @@ export default {
         filteredCourses = this.$store.state.courses.updatedCourses.filter(
           (course) => {
             if (this.filter == "all") {
+                this.$store.dispatch('courses/setSelectedFilter',"all")
               return course;
             } else if (this.filter == "paid") {
+               this.$store.dispatch('courses/setSelectedFilter',"paid")
               return course.price > 0;
             } else {
+              this.$store.dispatch('courses/setSelectedFilter',"free")
               return course.price == undefined;
             }
           }
@@ -426,6 +435,7 @@ export default {
         this.newCourses = this.$store.state.courses.updatedCourses.slice(0, 10);
       }
       this.$refs.all.checked = true;
+      this.$store.dispatch('courses/setSelectedFilter',"all")
       this.$store.dispatch("courses/setFilterStatus", false);
       this.page = 1;
     },
@@ -483,9 +493,9 @@ export default {
   z-index: -1;
 }
 
-.Pagination {
+/* .Pagination {
   transform: scale(1.3);
-}
+} */
 
 .courses {
   height: 100vh;
@@ -508,7 +518,7 @@ export default {
 }
 
 .course {
-  height: 170px;
+  min-height: 160px;
   position: relative;
   box-shadow: 3px 3px 10px black;
   background: white;

@@ -1,6 +1,6 @@
 <template>
   <div class="row my-5">
-    <div class="col-6 ms-auto me-auto">
+    <div class="col-10 col-sm-6 ms-auto me-auto">
       <h1 style="color: blueviolet" class="mb-5">Add Course</h1>
 
       <div v-if="error" class="alert alert-danger" role="alert">
@@ -35,7 +35,7 @@
         <div class="mb-3">
           <label for="category" class="form-label required">Category</label>
           <select
-            @change="course.selectCategory"
+            @change="selectCategory"
             v-model="course.category"
             class="form-select"
             id="category"
@@ -171,7 +171,6 @@ import { useField, useForm } from "vee-validate";
 import * as yup from "yup";
 import '../../assets/css/style.css'
 import http from "../../http-common";
-import { userStore } from "../../store/modules/user";
 import categoryData from "../../services/category";
 import subcategoryData from "../../services/subcategory";
 export default {
@@ -192,10 +191,10 @@ export default {
       category: yup.number().required(),
       subcategory: yup.number(),
       isPaid: yup.string().required(),
-      price: yup.number().when('isPaid',{
-        is:'true',
-        then: yup.number().required()
-      })
+      price: yup.string().when("isPaid", {
+        is: "true", 
+        then: yup.string().required(),
+      }),
     })
 
     const { handleSubmit } = useForm({
@@ -256,12 +255,13 @@ export default {
         console.log(err);
       });
   },
+
   methods: {
 
     // select category onchange
     selectCategory() {
-      console.log(this.category);
-      subcategoryData.getAllSubCategories(this.category).then((res) => {
+      console.log(this.course.category);
+      subcategoryData.getAllSubCategories(this.course.category).then((res) => {
         this.subcategoryArr = res.data;
       });
     },
@@ -306,17 +306,17 @@ export default {
       formData.append("name", this.course.name);
       formData.append("description", this.course.description);
       formData.append("category", this.course.category);
-      if (this.subcategory) {
+      if (this.course.subcategory) {
         formData.append("subcategory", this.course.subcategory);
       }
       formData.append("isPaid", this.course.isPaid);
-      if (this.isPaid == "true") {
-        if (!this.price) {
+      if (this.course.isPaid == "true") {
+        if (!this.course.price) {
           return (this.error = "price is required");
         }
         formData.append("price", this.course.price);
       } else {
-        if (this.price) {
+        if (this.course.price) {
           return (this.error = "price is not required");
         }
       }
@@ -330,7 +330,7 @@ export default {
       http
         .post(`api/courses/inst-courses`, formData, {
           headers: {
-            "x-access-token": userStore.state.token,
+            "x-access-token": this.$store.state.user.token,
             "Content-Type": "multipart/form-data",
           },
           onUploadProgress: function (progressEvent) {

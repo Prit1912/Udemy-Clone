@@ -1,6 +1,4 @@
 <template>
-  <form class="row gx-3 gy-2 align-items-center">
-      <div class="col-sm-3">
         <input
           v-model="search"
           class="form-control border border-dark me-2"
@@ -8,8 +6,6 @@
           placeholder="Search"
           aria-label="Search"
         />
-      </div>
-    </form>
 </template>
 
 <script>

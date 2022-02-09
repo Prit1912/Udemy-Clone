@@ -16,7 +16,7 @@
 import paymentData from "../../services/payment";
 import CourseList from "../../components/Courses/CourseList.vue";
 import cartData from "../../services/cart";
-
+import router from '../../routes/index'
 export default {
   name: "cart",
   components: {
@@ -47,7 +47,9 @@ export default {
           }
         }
       }
-    });
+    }).catch((err)=>{
+      console.log(err.response.data)
+    })
   },
 
   methods: {
@@ -80,6 +82,7 @@ export default {
             .then((res) => {
               console.log(res.data);
               this.items = [];
+               router.push({name:'myCourses'})
               return;
             })
             .catch((err) => {
@@ -122,7 +125,7 @@ export default {
             .then((res) => {
               console.log(res.data);
               this.items = [];
-              this.$router.go();
+              router.push({name:'myCourses'})
             })
             .catch((err) => {
               console.log(err.response);

@@ -21,11 +21,13 @@ export default {
             items: [],
         }
     },
-    mounted(){
+    created(){
         // get all wishlist items
         wishlistData.getwishlistItems().then((res)=>{
             console.log(res.data[0]);
             this.items = res.data[0].courses;
+        }).catch((err)=>{
+            console.log(err.response.data)
         })
     }
 }

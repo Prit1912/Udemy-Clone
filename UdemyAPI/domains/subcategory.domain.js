@@ -4,6 +4,9 @@ class SubcategoryDomain{
 
     // get all subcategories
     async getSubCategory(req,res){
+        if(req.params.cId == 'null'){
+            return;
+        }
         const allSubCategories = await subcategories.find({category: req.params.cId}).populate('category');
         if(allSubCategories.length == 0) return res.status(404).send('There are no sub categories added yet');
         res.send(allSubCategories);

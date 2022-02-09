@@ -6,7 +6,7 @@ class WishlisitDomain{
     // get wishlist items
     async getWishlistItems(req,res){
         const items = await wishlistItems.find({user: req.user._id}).populate('courses');
-        if(items[0].courses.length == 0){
+        if(items.length == 0){
             return res.status(500).send('your wishlist is empty')
         }
         res.send(items);

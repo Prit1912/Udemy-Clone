@@ -10,7 +10,7 @@ class CartDomain{
             .select('courses')
             .populate('courses')
         if(!items){
-            return res.send('your cart is empty');
+            return res.status(500).send('your cart is empty');
         }
         res.send(items);
     }

@@ -103,7 +103,7 @@ class CourseDomain {
   // get all courses
   async getAllCourses(req, res) {
     // const course = await courses.find({ isActive: true }).select('name price courseImage rating');
-    const course = await courses.find({ isActive: true }).select('-videos').populate('category').populate('subcategory');
+    const course = await courses.find({ isActive: true }).select('-videos').populate('category').populate('subcategory').sort({rating: -1});
     if (course.length == 0) return res.send("no courses found");
     res.send(course);
   }
@@ -256,7 +256,7 @@ class CourseDomain {
       .select("courses")
       .populate("courses");
     if (course.length == 0) {
-      return res.send("not enrolled in any course");
+      return res.status(500).send("not enrolled in any course");
     }
     res.send(course);
   }
@@ -644,7 +644,7 @@ class CourseDomain {
     var imgresult = await uploadToCloudinary(newPath, req.user._id);
     console.log(imgresult);
 
-    let course = await courses.findOneAndUpdate(id,{
+    let course = await courses.findByIdAndUpdate(id,{
       $set:{
         courseImage: {
           name: req.files["image"][0].originalname,
@@ -655,6 +655,99 @@ class CourseDomain {
 
     res.send(course)
   }
+
+
+  // change resources file
+  async changeCourseResources(req,res){
+    // console.log(req.files)
+    // const id = req.params.id;
+    // const datas = await courses.find();
+    // const c = datas.find((e) => {
+    //   return e._id == id;
+    // });
+
+    // if (!c) return res.status(404).send("course not found");
+
+    var locaFilePath = req.files["resources"][0].path;
+    console.log(locaFilePath);
+    const newPath = locaFilePath.replace(/\\/g, "/");
+    var resourceResult = await uploadResourcesToCloudinary(newPath, req.user._id);
+    console.log(resourceResult);
+
+    // let course = await courses.findOneAndUpdate(id,{
+    //   $set:{
+    //     resources : {
+    //       name: req.files["resources"][0].originalname,
+    //       url: resourceResult.url,
+    //     },
+    //   }
+    // },{new:true})
+
+    // res.send(course)
+    let course = await courses.findByIdAndUpdate(req.params.id,{
+      $set:{
+        resources : {
+                name: req.files["resources"][0].originalname,
+                url: resourceResult.url,
+              },
+      }
+    },{new: true});
+    res.send(course)
+  }
+
+
+  // change videos files
+  async changeCourseVideos(req,res){
+    console.log(req.files);
+    let oldVideosArr = [];
+    if(req.body.oldVideos){
+    for(let i = 0;i<req.body.oldVideos.length;i++){
+      req.body.oldVideos[i] = JSON.parse(req.body.oldVideos[i])
+    }
+    console.log(req.body.oldVideos);
+    oldVideosArr = req.body.oldVideos
+  }
+    if(!req.files['videos']){
+      let course = await courses.findByIdAndUpdate(req.params.id,{
+        $set:{
+          videos: oldVideosArr,
+        }
+      },{new: true})
+      res.send(course);
+      return;
+    }
+ 
+    console.log(req.body.position);
+
+    var videoUrlList = [];
+
+    for (var i = 0; i < req.files["videos"].length; i++) {
+      var locaFilePath = req.files["videos"][i].path;
+      var orgName = req.files["videos"][i].originalname;
+      console.log(locaFilePath);
+      const newPath = locaFilePath.replace(/\\/g, "/");
+      console.log(newPath);
+      var result = await uploadVideosToCloudinary(newPath, req.user._id);
+      console.log(result);
+      videoUrlList.push({
+        name: orgName,
+        url: result.url,
+      });
+      console.log(videoUrlList);
+    }
+
+    oldVideosArr.splice(req.body.position-1,0,...videoUrlList)
+    console.log(oldVideosArr);
+
+    let course = await courses.findByIdAndUpdate(req.params.id,{
+      $set:{
+        videos: oldVideosArr,
+      }
+    },{new: true})
+
+    res.send(course)
+  }
+
 
   // delete instructor course
   async deleteInstructorCourse(req, res) {
@@ -690,10 +783,12 @@ class CourseDomain {
 
   // buyers summary for instructor
   async buyerSummary(req, res) {
+    if(req.user.role != 'admin'){
     const course = await courses.findOne({ instructor: req.user._id, _id: req.params.id });
     if (!course) {
       return res.status(404).send("this course is not uploaded by you");
     }
+  }
     const courseId = req.params.id;
     const buyer = await purchases
       .find({ courses: courseId })
@@ -705,7 +800,7 @@ class CourseDomain {
 
   // show all courses to admin
   async showCoursesAdmin(req, res) {
-    const course = await courses.find().populate('category');
+    const course = await courses.find().populate('category').populate('instructor');
     if (course.length == 0) return res.send("no courses are there");
     res.send(course);
   }

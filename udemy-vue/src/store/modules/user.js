@@ -40,6 +40,7 @@ export const user = {
           dispatch('courses/setCategoryId',null,{root: true})
           dispatch('courses/setSubCategoryId',null,{root: true})
           dispatch('courses/setSearchedString',null,{root: true})
+          dispatch('courses/setSelectedFilter',"all",{root: true})
           commit('logout')
         }
       }

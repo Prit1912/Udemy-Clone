@@ -1,7 +1,7 @@
 <template>
   <div v-if="course" class="container my-5 text-center">
     <div class="imgContainer">
-      <img :src="course.courseImage.url" class="img-fluid border border-5" />
+      <img :src="course.courseImage.url" class="img-fluid courseImage border border-5" />
     </div>
     <div class="content w-75 ms-auto me-auto">
       <h3 class="mt-5">{{ course.name }}</h3>
@@ -135,13 +135,26 @@ export default {
 </script>
 
 <style scoped>
-.imgContainer {
+/* .imgContainer {
   position: relative;
   top: 45px;
-}
+} */
 .content {
   border: 2px solid blueviolet;
+  position: relative;
+  z-index: 0;
+  animation: moveUp 2s forwards;
 }
+
+@keyframes moveUp {
+  from{
+    top: 500px;
+  }
+  to{
+    top: 0px;
+  }
+}
+
 video {
   width: 100%;
 }
@@ -154,5 +167,24 @@ video {
 }
 .videolink:hover {
   color: blueviolet;
+}
+
+.imgContainer{
+ position:relative;
+ top: 45px;
+ z-index: 1;
+ animation:animate 2s forwards;
+ transition: all 0.4s ease-in;
+}
+
+@keyframes animate{
+  from{
+  top:-100px;
+  transform: rotateX(0deg);
+  } 
+  to{
+  top:45px;
+  transform: rotateX(360deg);
+  }
 }
 </style>

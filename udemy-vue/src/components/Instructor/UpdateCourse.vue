@@ -106,7 +106,12 @@
           <label for="courseImage" class="form-label required"
             >Course Image</label
           ><br />
-          <img v-if="image" :src="image.url" class="border border-dark" alt="" />
+          <img
+            v-if="image"
+            :src="image.url"
+            class="border border-dark"
+            alt=""
+          />
           <br /><br />
           <input
             @change="onSelect"
@@ -119,12 +124,32 @@
           <button class="btn btn-success my-2" @click="changeImage()">
             change
           </button>
+          <div v-if="updatingImage">
+            <div class="progress">
+              <div
+                class="progress-bar progress-bar-animated progress-bar-striped"
+                role="progressbar"
+                style="width: 100%"
+                aria-valuenow="100"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              ></div>
+            </div>
+          </div>
           <span v-if="imgError" class="error">Invalid image type</span>
         </div>
         <div class="mb-3">
           <label for="resources" class="form-label required"
             >Resource File (zip)</label
           >
+          <br />
+          <button
+            @click="download(resource.url, 'example.zip')"
+            class="btn btn-outline-dark"
+          >
+            {{ resource.name }} <i class="fas fa-download"></i>
+          </button>
+          <br /><br />
           <input
             @change="onSelect"
             class="form-control"
@@ -133,11 +158,31 @@
             type="file"
             id="resources"
           />
-          <button class="btn btn-success my-2">change</button>
+          <button @click="changeResources()" class="btn btn-success my-2">
+            change
+          </button>
+          <div v-if="updatingResources" >
+            <div class="progress">
+              <div
+                class="progress-bar progress-bar-animated progress-bar-striped"
+                role="progressbar"
+                style="width: 100%"
+                aria-valuenow="100"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              ></div>
+            </div>
+          </div>
           <span v-if="resourcesError" class="error">Invalid resource type</span>
         </div>
         <div class="mb-3">
           <label for="videos" class="form-label required">Videos</label>
+          <div v-for="(video, index) of videos" :key="index">
+            {{ index + 1 }} - {{ video.name }} -
+            <button class="btn" @click="remove(index)">
+              <i class="fas fa-times-circle"></i>
+            </button>
+          </div>
           <input
             @change="onSelect"
             class="form-control"
@@ -147,7 +192,44 @@
             id="videos"
             multiple
           />
-          <button class="btn btn-success my-2">change</button>
+          <br />
+          Select position at which you want to add following videos:
+          <select
+            v-model="position"
+            class="form-select"
+            aria-label="Default select example"
+          >
+            <option v-for="i of videos.length + 1" :key="i" :value="i">
+              {{ i }}
+            </option>
+          </select>
+          <div v-if="newVideos">
+            <span v-for="(video, index) of newVideos" :key="video">
+              <span :class="video.type == 'video/mp4' ? '' : 'error'">{{
+                video.name
+              }}</span>
+              -
+              <button class="btn" @click.prevent="removeFromNewVideos(index)">
+                <i class="fas fa-times-circle"></i>
+              </button>
+              <br />
+            </span>
+          </div>
+          <button @click="changeVideos()" class="btn btn-success my-2">
+            change
+          </button>
+          <div v-if="updatingVideos" >
+            <div class="progress">
+              <div
+                class="progress-bar progress-bar-animated progress-bar-striped"
+                role="progressbar"
+                style="width: 100%"
+                aria-valuenow="100"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              ></div>
+            </div>
+          </div>
         </div>
         <br />
       </div>
@@ -156,6 +238,7 @@
 </template>
 
 <script>
+import axios from "axios";
 import { useField, useForm } from "vee-validate";
 import * as yup from "yup";
 import "../../assets/css/style.css";
@@ -235,7 +318,12 @@ export default {
       imgError: "",
       resourcesError: "",
       videos: "",
-      image: ""
+      image: "",
+      newVideos: "",
+      position: 1,
+      updatingImage: "",
+      updatingResources: "",
+      updatingVideos: "",
     };
   },
   props: ["id"],
@@ -305,29 +393,110 @@ export default {
       } else {
         this.imgError = "";
       }
-      this.resources = this.$refs.res.files[0];
-      console.log(this.resources);
-      if (
-        this.resources &&
-        this.resources.type != "application/x-zip-compressed"
-      ) {
+      let resources = this.$refs.res.files[0];
+      console.log(resources);
+      if (resources && resources.type != "application/x-zip-compressed") {
         this.resourcesError = "error";
       } else {
         this.resourcesError = "";
       }
-      this.videos = this.$refs.videos.files;
-      console.log(this.videos);
+      this.newVideos = this.$refs.videos.files;
+      console.log(this.newVideos);
     },
-    changeImage(){
+    changeImage() {
       const formData = new FormData();
-      formData.append("image", this.$refs.img.files[0])
-      courseData.updateCourseImage(this.id, formData).then((res)=>{
-        console.log(res.data);
-        this.image = res.data.courseImage
-      }).catch((err)=>{
-        console.log(err.response)
+      this.updatingImage = 'changing image'
+      formData.append("image", this.$refs.img.files[0]);
+      courseData
+        .updateCourseImage(this.id, formData)
+        .then((res) => {
+          console.log(res.data);
+          this.image = res.data.courseImage;
+          this.updatingImage = "";
+        })
+        .catch((err) => {
+          console.log(err.response);
+          this.imgError = err.response
+        });
+    },
+    changeResources() {
+      console.log(this.id);
+      const formData = new FormData();
+      formData.append("resources", this.$refs.res.files[0]);
+      this.updatingResources = 'changing resources'
+      courseData
+        .updateCourseResource(this.id, formData)
+        .then((res) => {
+          console.log(res.data);
+          this.resource = res.data.resources;
+          this.updatingResources = ""
+        })
+        .catch((err) => {
+          console.log(err.response);
+        });
+    },
+    forceFileDownload(response, title) {
+      console.log(title);
+      const url = window.URL.createObjectURL(new Blob([response.data]));
+      const link = document.createElement("a");
+      link.href = url;
+      link.setAttribute("download", title);
+      document.body.appendChild(link);
+      link.click();
+    },
+    download(url, title) {
+      axios({
+        method: "get",
+        url,
+        responseType: "arraybuffer",
       })
-    }
+        .then((response) => {
+          this.forceFileDownload(response, title);
+        })
+        .catch(() => console.log("error occured"));
+    },
+    remove(index) {
+      console.log(index);
+      let arr = [];
+      for (let i = 0; i < this.videos.length; i++) {
+        if (i != index) {
+          arr.push(this.videos[i]);
+        }
+      }
+      this.videos = arr;
+    },
+    removeFromNewVideos(index) {
+      let arr = [];
+      for (let i = 0; i < this.newVideos.length; i++) {
+        if (i != index) {
+          arr.push(this.newVideos[i]);
+        }
+      }
+      this.newVideos = arr;
+    },
+    changeVideos() {
+      let formData = new FormData();
+      for (let i = 0; i < this.newVideos.length; i++) {
+        formData.append("videos", this.newVideos[i]);
+      }
+      let arr = JSON.parse(JSON.stringify(this.videos));
+      for (let i = 0; i < arr.length; i++) {
+        formData.append("oldVideos", JSON.stringify(arr[i]));
+        console.log(JSON.stringify(arr[i]));
+      }
+      formData.append("position", this.position);
+      this.updatingVideos = "updating videos"
+      courseData
+        .updateCourseVideos(this.id, formData)
+        .then((res) => {
+          console.log(res.data);
+          this.videos = res.data.videos;
+          this.updatingVideos = ""
+        })
+        .catch((err) => {
+          console.log(err.response);
+        });
+    },
   },
 };
 </script>
