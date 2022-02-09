@@ -161,6 +161,9 @@ export default {
       error: "",
     };
   },
+  unMounted(){
+    this.$router.go();
+  },
   methods: {
 
     // signup method

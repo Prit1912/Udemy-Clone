@@ -25,6 +25,7 @@ class userServices{
 
     // user information
     userInfo(){
+        console.log(store.state.user)
         return http.get('api/user/profile',{
             headers:{
                 'x-access-token': store.state.user.token

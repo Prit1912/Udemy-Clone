@@ -110,7 +110,7 @@ class CourseDomain {
 
   // get categorywise course
   async getCategorywiseCourse(req, res) {
-    const course = await courses.find({ category: req.params.cId }).select('-videos').populate('category').populate('subcategory');
+    const course = await courses.find({ category: req.params.cId, isActive: true }).select('-videos').populate('category').populate('subcategory');
     if (course.length == 0) return res.send("no course found");
     res.send(course);
   }
@@ -151,6 +151,7 @@ class CourseDomain {
     const course = await courses.find({
       category: req.params.cId,
       subcategory: req.params.sId,
+      isActive: true
     }).select('-videos').populate('category').populate('subcategory');
     if (course.length == 0) return res.send("no courses found");
     res.send(course);

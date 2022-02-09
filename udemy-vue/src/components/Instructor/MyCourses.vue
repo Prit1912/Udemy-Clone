@@ -19,7 +19,7 @@
         <div v-for="course in coursesList" :key="course._id">
           <div class="row my-4 course border border-3">
             <div class="col-md-3 col-12 align-self-center">
-              <img :src="course.courseImage.url" class="img-fluid" alt="..." />
+              <img :src="course.courseImage.url" class="img-fluid courseImage" alt="..." />
             </div>
             <div class="col-md-6 col-12 align-self-center">
               <h4 class="text-justify">{{ course.name }}</h4>
@@ -62,7 +62,7 @@
                 view course
               </button>
               <button
-                class="btn btn-dark"
+                class="btn btn-dark m-2"
                 @click="
                   this.$router.push({
                     name: 'updateCourse',
@@ -93,6 +93,7 @@ import SearchBar from '../../components/Search/SearchBar.vue'
 import courseData from "../../services/courses";
 import VPagination from "@hennge/vue3-pagination";
 import "@hennge/vue3-pagination/dist/vue3-pagination.css";
+import '../../assets/css/style.css'
 
 export default {
   name: "myCourses",

@@ -3,6 +3,14 @@
     <div class="heading my-2 bg-dark">
       <p>{{ course.name }}</p>
     </div>
+    <div style="display: none">
+      <div ref="document" class="text-center" >
+            <img src="../../../src/assets/udemyLogo.png" class="img-fluid" alt="">
+        <h3 class="mt-3" >Certificate of Completion</h3>
+        <h4> {{course.name}} </h4> 
+        <h5>{{name}}</h5>
+      </div>
+    </div>
     <div class="row">
       <div class="col-md-9">
         <video ref="myVideo" id="myVideo" :src="videoUrl" controls></video>
@@ -10,6 +18,7 @@
 
       <div class="col-md-3 links">
         <!-- {{per}}% -->
+        <button class="btn btn-outline-dark mb-2" :disabled="per != 100.00" @click="exportToPDF">Download Certificate</button>
         <div v-for="(video, index) of course.videos" :key="index">
           <div class="wrapper bg-light border border- p-2">
             <span class="videolink" @click="nextVideo(video, index)">
@@ -157,6 +166,7 @@ import axios from "axios";
 import userData from "../../services/users";
 import courseData from "../../services/courses";
 import store from "../../store/index";
+import html2pdf from 'html2pdf.js'
 
 export default {
   name: "fullCourse",
@@ -172,17 +182,22 @@ export default {
       review: "",
       clicked: 0,
       per: 0,
+      name: "",
       // widhtObject:{
       //   width:"0%"
       // }
     };
   },
-  computed: {
-    proper: function () {
-      return localStorage.getItem("progressPercentage");
-    },
-  },
+  // computed: {
+  //   proper: function () {
+  //     return localStorage.getItem("progressPercentage");
+  //   },
+  // },
   created() {
+    userData.userInfo().then((res)=>{
+      this.name = res.data.name;
+    })
+
     courseData
       .getCourseById(this.courseId)
       .then((res) => {
@@ -379,11 +394,25 @@ export default {
           console.log(err.response);
         });
     },
+    exportToPDF(){
+      html2pdf(this.$refs.document, {
+					margin: 1,
+					filename: 'certificate.pdf',
+					image: { type: 'jpeg', quality: 0.98 },
+					html2canvas: { dpi: 192, letterRendering: true },
+					jsPDF: { unit: 'in', format: 'letter', orientation: 'landscape' }
+				})
+    }
   },
 };
 </script>
 
 <style scoped>
+.udemylogo{
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+}
 .heading {
   height: 8vh;
   display: flex;
@@ -400,7 +429,7 @@ video {
   cursor: pointer;
 }
 .links {
-  /* height: 75vh; */
+  height: 75vh;
   overflow: auto;
 }
 .videolink:hover {

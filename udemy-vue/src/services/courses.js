@@ -36,8 +36,8 @@ class courseService{
     addCourseToWishlist(id){
         console.log(store)
         console.log(store.state.user)
-        return http.post(`api/courses/${id}/addtowishlist`,{
-            Headers:{
+        return http.post(`api/courses/${id}/addtowishlist`,{},{
+            headers:{
                 'x-access-token': store.state.user.token
             }
         })
@@ -45,11 +45,22 @@ class courseService{
     
     // add course to cart
     addCourseToCart(id){
-        console.log(store.state.user)
-        return http.post(`api/courses/${id}/addtocart`,{
+        console.log(store.state.user.token)
+        return http.post(`api/courses/${id}/addtocart`,{},{
             headers:{
                 'x-access-token': store.state.user.token
             }
+        })
+    }
+
+    // upload course
+    uploadCourse(formData){
+        return http
+        .post(`api/courses/inst-courses`, formData, {
+          headers: {
+            "x-access-token": store.state.user.token,
+            "Content-Type": "multipart/form-data",
+          }
         })
     }
 

@@ -170,9 +170,10 @@
 import { useField, useForm } from "vee-validate";
 import * as yup from "yup";
 import '../../assets/css/style.css'
-import http from "../../http-common";
+// import http from "../../http-common";
 import categoryData from "../../services/category";
 import subcategoryData from "../../services/subcategory";
+import courseData from '../../services/courses'
 export default {
   name: "addCourse",
   data() {
@@ -327,18 +328,19 @@ export default {
         formData.append("videos", file);
       }
       this.progress = "uploading files to server";
-      http
-        .post(`api/courses/inst-courses`, formData, {
-          headers: {
-            "x-access-token": this.$store.state.user.token,
-            "Content-Type": "multipart/form-data",
-          },
-          onUploadProgress: function (progressEvent) {
-            this.uploadPercentage = parseInt(
-              Math.round((progressEvent.loaded / progressEvent.total) * 100)
-            );
-          }.bind(this),
-        })
+      courseData.uploadCourse(formData)
+      // http
+      //   .post(`api/courses/inst-courses`, formData, {
+      //     headers: {
+      //       "x-access-token": this.$store.state.user.token,
+      //       "Content-Type": "multipart/form-data",
+      //     },
+      //     onUploadProgress: function (progressEvent) {
+      //       this.uploadPercentage = parseInt(
+      //         Math.round((progressEvent.loaded / progressEvent.total) * 100)
+      //       );
+      //     }.bind(this),
+      //   })
         .then((res) => {
           console.log(res.data);
           this.error = "";

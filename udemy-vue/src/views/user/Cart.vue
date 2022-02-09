@@ -1,10 +1,10 @@
 <template>
   <div class="container my-5">
     <p class="display-6" style="color: blueviolet">Cart</p>
-    <div v-if="items.length == 0">
-      <h1>cart is empty</h1>
+    <div v-if="error || items.length == 0">
+      <h1>Cart is Empty</h1>
     </div>
-    <div v-else>
+    <div v-if="items.length != 0">
       <CourseList v-bind:item="items" comp="cart" />
       <h4 class="my-3" v-if="amount">Total : {{ amount }}</h4>
       <button class="btn btn-warning" @click="purchase">Buy</button>
@@ -24,11 +24,12 @@ export default {
   },
   data() {
     return {
-      items: [],
+      items: "",
       amount: 0,
       name: "",
       email: "",
       phone: "",
+      error: ""
     };
   },
   created() {
@@ -37,6 +38,7 @@ export default {
     cartData.getCartItems().then((res) => {
       console.log(res.data);
       this.items = res.data.courses;
+      this.error = ""
       for (let c of this.items) {
         if (c.price) {
           if(c.offerPrice){
@@ -49,6 +51,7 @@ export default {
       }
     }).catch((err)=>{
       console.log(err.response.data)
+      this.error = err.response.data;
     })
   },
 
