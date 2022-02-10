@@ -71,6 +71,8 @@ export default {
             this.reviewList = this.reviews
             if(this.reviewList.length == 0){
                 this.error = 'no reviews'
+            }else{
+              this.error = ""
             }
         }else{
           this.reviewList = this.reviews.filter((review)=>{

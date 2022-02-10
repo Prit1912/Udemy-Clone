@@ -64,12 +64,12 @@ export default {
     data(){
         return{
             buyers: "",
-      buyersList: "",
-      error: "",
-      updatedBuyersList: "",
-      buyersPerPage: 5,
-      page: 1,
-      pages: null,
+            buyersList: "",
+            error: "",
+            updatedBuyersList: "",
+            buyersPerPage: 5,
+            page: 1,
+            pages: null,
         }
     },
     created(){
@@ -81,7 +81,7 @@ export default {
             this.error = err.response.data;
         })
 
-        courseData
+      courseData
       .courseBuyers(this.courseId)
       .then((res) => {
         this.buyers = res.data;

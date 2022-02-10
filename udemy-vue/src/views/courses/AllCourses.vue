@@ -68,12 +68,12 @@
           Clear
         </button>
       </div>
-      <div class="col-md-9 courses border border-3 my-5 p-md-5">
+      <div class="col-md-9 courses border border-3 my-5">
         <div v-if="courses == 'no course found' || newCourses.length == 0">
           <h3 class="my-5">No Course Found</h3>
         </div>
         <div v-else v-for="course in newCourses" :key="course._id">
-          <div class="row mx-1 mx-sm-0 course my-5 border border-3">
+          <div class="row mx-1 mx-sm-0 course my-2">
             <span v-if="course.offerPrice" class="offerCourse">
               <h5><span class="badge bg-primary">Offer</span></h5>
             </span>
@@ -85,7 +85,7 @@
               />
             </div>
             <div class="col-md-6 col-12 align-self-center">
-              <h4 class="text-justify">{{ course.name }}</h4>
+              <h5 class="text-justify">{{ course.name }}</h5>
               <p v-if="course.offerPrice">
                 Offer Price:
                 <span class="text-decoration-line-through"
@@ -113,21 +113,21 @@
               </div>
               <div v-else>
                 <button
-                  class="btn btn-dark m-2"
+                  class="btn btn-sm btn-dark m-sm-2 m-1"
                   :disabled="cartItems.includes(course._id)"
                   @click="addToCart(course._id)"
                 >
                   add to cart
                 </button>
                 <button
-                  class="btn btn-dark m-2"
+                  class="btn btn-sm btn-dark m-sm-2 m-1"
                   :disabled="wishlistItems.includes(course._id)"
                   @click="addToWishlist(course._id)"
                 >
                   add to wishlist
                 </button>
                 <button
-                  class="btn btn-outline-dark m-2"
+                  class="btn btn-sm btn-outline-dark m-sm-2 m-1"
                   @click="viewCourse(course._id)"
                 >
                   view course
@@ -135,6 +135,7 @@
               </div>
             </div>
           </div>
+          <hr class="border border-dark" >
         </div>
         <div class="row">
           <div class="col my-5 d-flex justify-content-center">
@@ -531,7 +532,7 @@ export default {
   transform: scale(1.3);
 } */
 
-.courses {
+/* .courses {
   height: 100vh;
   overflow: auto;
   background: linear-gradient(120deg, #ffffff, blueviolet, #ffffff);
@@ -549,12 +550,12 @@ export default {
   100% {
     background-position: 10% 0%;
   }
-}
+} */
 
 .course {
-  min-height: 160px;
+  min-height: 150px;
   position: relative;
-  box-shadow: 3px 3px 10px black;
+  /* box-shadow: 3px 3px 10px black; */
   background: white;
 }
 

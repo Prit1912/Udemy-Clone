@@ -6,7 +6,7 @@
     </div>
     <div v-if="items.length != 0">
       <CourseList v-bind:item="items" comp="cart" />
-      <h4 class="my-3" v-if="amount">Total : {{ amount }}</h4>
+      <h4 class="my-3" v-if="amount">Total : ₹{{ amount }}</h4>
       <button class="btn btn-warning" @click="purchase">Buy</button>
     </div>
   </div>
