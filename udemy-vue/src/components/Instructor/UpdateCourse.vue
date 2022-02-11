@@ -374,6 +374,8 @@ export default {
           console.log(res.data);
           this.message = "course updated successfully";
           this.error = "";
+          this.$store.dispatch("courses/setUpdatedCourses", []);
+        this.$store.dispatch("courses/setAllCourses", []);
         })
         .catch((err) => {
           this.error = err.response.data;

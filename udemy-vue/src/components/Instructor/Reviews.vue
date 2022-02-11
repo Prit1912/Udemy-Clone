@@ -34,7 +34,7 @@
             </tr>
           </tbody>
         </table>
-    <h3 v-if="error || reviewList.length == 0">{{ error }}</h3>
+          <h3 v-if="error || reviewList.length == 0">{{ error }}</h3>
       </div>
     </div>
   </div>

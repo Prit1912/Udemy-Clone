@@ -8,7 +8,7 @@
         <h3> Total Courses: <span style="color: blueviolet" >{{courses.length}} </span>  </h3>
       </div>
       <div class="col-sm-4">
-        <SearchBar @query="searchCourses" />
+        <NormalSearch @query="searchCourses" />
       </div>
       <div class="col-sm-4">
         Courses per page: <input type="number" ref="setNum" v-model="coursesPerPage" @change="updateCoursesPerPage" style="width: 50px">
@@ -89,7 +89,7 @@
 </template>
 
 <script>
-import SearchBar from '../../components/Search/SearchBar.vue'
+import NormalSearch from '../../components/Search/NormalSearch.vue'
 import courseData from "../../services/courses";
 import VPagination from "@hennge/vue3-pagination";
 import "@hennge/vue3-pagination/dist/vue3-pagination.css";
@@ -98,7 +98,7 @@ import '../../assets/css/style.css'
 export default {
   name: "myCourses",
   components:{
-    SearchBar,
+    NormalSearch,
     VPagination
   },
   data() {

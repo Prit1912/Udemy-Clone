@@ -18,7 +18,7 @@
     <h3>Categories</h3>
     <div class="row my-3">
       <div class="col-sm-4">
-        <SearchBar @query="searchCategory" />
+        <NormalSearch @query="searchCategory" />
       </div>
     </div>
     <div class="categoryTable">
@@ -59,7 +59,7 @@
     <h3>Sub Categories</h3>
     <div class="row my-3">
       <div class="col-sm-4">
-        <SearchBar @query="searchSubcategory" />
+        <NormalSearch @query="searchSubcategory" />
       </div>
     </div>
     <div class="subcategoryTable">
@@ -103,7 +103,7 @@
 <script>
 import categoryData from "../../../services/category";
 import subCategoryData from "../../../services/subcategory";
-import SearchBar from '../../../components/Search/SearchBar.vue'
+import NormalSearch from '../../../components/Search/NormalSearch.vue'
 export default {
   name: "categories",
   data() {
@@ -115,7 +115,7 @@ export default {
     };
   },
   components:{
-    SearchBar
+    NormalSearch
   },
   created() {
     categoryData.getAllCategories().then((res) => {

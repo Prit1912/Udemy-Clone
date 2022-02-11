@@ -93,7 +93,7 @@ class UserDomain{
         if(!user) return res.status(404).send('user not found');
     
         const token = jwt.sign({email: userEmail},config.secretKey,{expiresIn: "15m"})
-        const link = `http://localhost:8080/#/reset-password/${token}`;
+        const link = `http://${process.env.Host}:${process.env.Port}/reset-password/${token}`;
     
         var transporter = nodemailer.createTransport({
             service: 'gmail',

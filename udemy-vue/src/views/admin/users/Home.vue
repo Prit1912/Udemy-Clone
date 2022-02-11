@@ -29,7 +29,7 @@
 
     <div class="row">
       <div class="col-sm-4">
-        <SearchBar @query="searchUser" />
+        <NormalSearch @query="searchUser" />
       </div>
     </div>
 
@@ -117,12 +117,12 @@
 import VPagination from "@hennge/vue3-pagination";
 import "@hennge/vue3-pagination/dist/vue3-pagination.css";
 import userData from "../../../services/users";
-import SearchBar from "../../../components/Search/SearchBar.vue";
+import NormalSearch from "../../../components/Search/NormalSearch.vue";
 export default {
   name: "user",
   components: {
     VPagination,
-    SearchBar,
+    NormalSearch,
   },
   data() {
     return {
@@ -189,6 +189,7 @@ export default {
         );
       });
       this.updatedUsersList = filteredUsers;
+      this.page = 1;
       this.usersList = filteredUsers.slice(
         this.usersPerPage * (this.page - 1),
         this.page * this.usersPerPage

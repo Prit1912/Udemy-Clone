@@ -4,7 +4,7 @@
       <h3 style="color: blueviolet">Buyers</h3>
       <div class="row">
         <div class="col-sm-4">
-          <SearchBar @query="searchUser" />
+          <NormalSearch @query="searchUser" />
         </div>
         <div class="col-sm-8 d-flex align-self-center">
           Buyers Per Page : &nbsp; <input
@@ -52,14 +52,14 @@
 <script>
 import VPagination from "@hennge/vue3-pagination";
 import "@hennge/vue3-pagination/dist/vue3-pagination.css";
-import SearchBar from '../Search/SearchBar.vue'
+import NormalSearch from '../Search/NormalSearch.vue'
 import courseData from '../../services/courses'
 export default {
     name: 'buyers',
     props: ['courseId'],
     components: {
         VPagination,
-        SearchBar,
+        NormalSearch,
     },
     data(){
         return{

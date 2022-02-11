@@ -10,7 +10,7 @@
     <div class="offersDiv border border-2 p-3">
       <div class="row">
         <div class="col-sm-4">
-          <SearchBar @query="searchOffer" />
+          <NormalSearch @query="searchOffer" />
         </div>
       </div>
     <br>
@@ -87,7 +87,7 @@
 <script>
 import VPagination from "@hennge/vue3-pagination";
 import "@hennge/vue3-pagination/dist/vue3-pagination.css";
-import SearchBar from '../../../components/Search/SearchBar.vue';
+import NormalSearch from '../../../components/Search/NormalSearch.vue';
 import offerData from "../../../services/offers";
 
 export default {
@@ -104,7 +104,7 @@ export default {
   },
   components:{
     VPagination,
-    SearchBar
+    NormalSearch
   },
   created() {
     offerData.getAllOffers().then((res) => {
@@ -135,6 +135,7 @@ export default {
           console.log(res.data);
           offerData.getAllOffers().then((res) => {
             this.offers = res.data;
+            this.offersList = this.offers.slice(10 * (this.page - 1), this.page * 10);
           });
         })
         .catch((err) => {
@@ -148,6 +149,8 @@ export default {
         .then((res) => {
           console.log(res.data);
           this.liveOffer.push(id)
+           this.$store.dispatch("courses/setUpdatedCourses", []);
+        this.$store.dispatch("courses/setAllCourses", []);
         })
         .catch((err) => {
           console.log(err.response);
@@ -161,6 +164,8 @@ export default {
          this.liveOffer = this.liveOffer.filter((offerId)=>{
            return offerId != id;
          })
+          this.$store.dispatch("courses/setUpdatedCourses", []);
+        this.$store.dispatch("courses/setAllCourses", []);
         })
         .catch((err) => {
           console.log(err.response);

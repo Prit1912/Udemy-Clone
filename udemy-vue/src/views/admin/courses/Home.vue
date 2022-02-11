@@ -1,12 +1,12 @@
 <template>
   <div class="container my-5">
-    <div class="bg-dark border rounded p-5">
+    <div class="bg-light border rounded p-5">
       <CategorySubCateSelect @courses="getCourses" />
       <br /><br />
       <div class="row">
         <div class="col-sm-4">
            <h5 style="color: blueviolet"> Search: </h5>
-          <SearchBar @query="searchCourse" />
+          <NormalSearch @query="searchCourse" />
         </div>
         <div class="col-sm-4">
           <h5 style="color: blueviolet"> Filter: </h5>
@@ -111,7 +111,7 @@
 </template>
 
 <script>
-import SearchBar from "../../../components/Search/SearchBar.vue";
+import NormalSearch from "../../../components/Search/NormalSearch.vue";
 import CategorySubCateSelect from "../../../components/Select/CategorySubCateSelect.vue";
 import courseData from "../../../services/courses";
 import VPagination from "@hennge/vue3-pagination";
@@ -119,7 +119,7 @@ import "@hennge/vue3-pagination/dist/vue3-pagination.css";
 export default {
   name: "courses",
   components: {
-    SearchBar,
+    NormalSearch,
     CategorySubCateSelect,
     VPagination,
   },
