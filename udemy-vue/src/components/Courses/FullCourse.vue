@@ -219,6 +219,8 @@ export default {
   mounted(){
        document.getElementById("myVideo").addEventListener("ended", () => {
         console.log("video ended");
+        console.log(this.clicked);
+        document.getElementsByClassName("videolink")[this.clicked + 1].click();
         // this.videoUrl = this.course.videos[1].url;
         // console.log(this.videoUrl)
 
@@ -227,8 +229,6 @@ export default {
         //     document.getElementsByClassName("videolink")[this.clicked].nextSibling
         //   );
         //     // document.getElementsByClassName("videolink")[this.clicked].nextSibling.setAttribute("hidden",true)
-        console.log(this.clicked);
-        document.getElementsByClassName("videolink")[this.clicked + 1].click();
         //    document.getElementsByClassName("videolink")[this.clicked + 1].nextSibling.removeAttribute("hidden")
         //  this.clicked ++;
         // console.log(this.clicked)
@@ -305,16 +305,6 @@ export default {
               )[0].checked = true;
           }
           store.dispatch("courses/setPercentage", [percentage, video.src, id]);
-
-          // this.style = {
-          //   width: this.progressPercentage+'%'
-          // }
-
-          // (Put the minutes and seconds in the display)
-
-          // video.addEventListener("ended", ()=>{
-          //   clearInterval(i);
-          // })
         }
       }, 1000);
       setInterval(() => {
@@ -323,11 +313,11 @@ export default {
             for (let i = 0; i < course.videos.length; i++) {
               //  console.log(course.videos[i])
               if (course.videos[i].url == video.src) {
+                document.getElementById(video.src).style.width =
+                  course.videos[i].progressPer + "%";
                 //  console.log('matched on number ',i)
                 //  console.log(document.getElementById(video.src).parentElement.parentElement.getElementsByTagName('input')[0])
                 // document.getElementsByClassName(video.src)[0].value = course.videos[i].progressPer
-                document.getElementById(video.src).style.width =
-                  course.videos[i].progressPer + "%";
                 //  this.widhtObject = {
                 //    width: course.videos[i].progressPer+"%"
                 //  }
@@ -335,18 +325,7 @@ export default {
             }
           }
         });
-        //  this.widhtObject = {
-        //    width: store.state.courses.percentage+"%"
-        //  }
       }, 1000);
-      // console.log(document.getElementById("myVideo"));
-      // document.getElementById("myVideo").addEventListener("playing", () => {
-      // console.log(video.currentTime);
-      // });
-      // console.log(this.clicked)
-      // console.log(
-      //       document.getElementsByClassName("videolink")[this.clicked].nextSibling.style
-      //     );
     }
   },
   unmounted() {

@@ -84,11 +84,7 @@ class courseService{
 
     // see reviews given by users
     courseReview(id){
-        return http.get(`api/courses/inst-courses/${id}/reviews`,{
-            headers:{
-                'x-access-token': store.state.user.token
-            }
-        })
+        return http.get(`api/courses/inst-courses/${id}/reviews`)
     }
 
     // list of users who purchased specific course

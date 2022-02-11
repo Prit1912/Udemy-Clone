@@ -104,6 +104,9 @@ class courseController{
     }
 }
 
+// see reviews
+router.get('/:id/reviews', courseController.seeReview);
+
 router.use(auth,permit(role.instructor, role.admin))
 
 // get courses
@@ -122,8 +125,8 @@ router.post('/', upload.fields([{name: 'image',maxCount: 1},{name: 'videos',maxC
 // check who buy the course
 router.get('/:id/summary', courseController.buyersSummary)
 
-// see reviews
-router.get('/:id/reviews', courseController.seeReview);
+// // see reviews
+// router.get('/:id/reviews', courseController.seeReview);
 
 // get course by id
 router.get('/:id',courseController.getInstCourseById);

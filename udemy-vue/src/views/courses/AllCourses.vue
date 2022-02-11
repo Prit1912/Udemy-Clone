@@ -1,12 +1,12 @@
 <template>
   <div class="container">
-    <div class="top-head bg-dark p-3">
+    <div class="top-head bg-light p-3">
       <h2 style="color: blueviolet" class="border-bottom border-2 my-3">
         Courses
       </h2>
       <div class="row">
         <div class="col-sm-2 col-12">
-          <button class="btn btn-outline-light" @click="getAllCourses">
+          <button class="btn btn-outline-dark" @click="getAllCourses">
             All Courses
           </button>
         </div>
@@ -67,6 +67,19 @@
         <button type="button" class="btn btn-dark my-2" @click="removeFilter">
           Clear
         </button>
+
+        <br />
+        <h3 class="mt-5 border-bottom" style="color: blueviolet">Sort</h3>
+        <select
+          class="form-select w-75"
+          @change="sort"
+          aria-label="Default select example"
+        >
+          <option selected>Sort By</option>
+          <option value="1">Price low to high</option>
+          <option value="2">Price high to low</option>
+          <option value="3">Most rated courses</option>
+        </select>
       </div>
       <div class="col-md-9 courses border border-3 my-5">
         <div v-if="courses == 'no course found' || newCourses.length == 0">
@@ -95,12 +108,12 @@
               </p>
               <p v-else-if="course.price">Price : ₹{{ course.price }}</p>
               <p v-else>Price : Free</p>
-              <p>Rating : {{ course.rating }}/5</p>
+              <p>Rating : {{ course.rating }}/5 </p>
             </div>
             <div class="col-md-3 col-12 align-self-center">
               <div v-if="enrolledCourses.includes(course._id)">
                 <button
-                  class="btn btn-dark"
+                  class="btn btn-sm btn-dark m-sm-2 m-1"
                   @click="
                     this.$router.push({
                       name: 'enrolledCourse',
@@ -109,6 +122,12 @@
                   "
                 >
                   Go to course
+                </button>
+                <button
+                  class="btn btn-sm btn-outline-dark m-sm-2 m-1"
+                  @click="viewCourse(course._id)"
+                >
+                  view course
                 </button>
               </div>
               <div v-else>
@@ -135,7 +154,7 @@
               </div>
             </div>
           </div>
-          <hr class="border border-dark" >
+          <hr class="border border-dark" />
         </div>
         <div class="row">
           <div class="col my-5 d-flex justify-content-center">
@@ -162,7 +181,6 @@ import courseData from "../../services/courses";
 import cartData from "../../services/cart";
 import wishlistData from "../../services/wishlist";
 import categoryData from "../../services/category";
-import subcategoryData from "../../services/subcategory";
 import CategorySubCateSelect from "../../components/Select/CategorySubCateSelect.vue";
 
 export default {
@@ -187,6 +205,8 @@ export default {
       newCourses: [],
       filterAppliedCourses: [],
       coursesPerPage: 10,
+      finalCourses: [],
+      updatedFinalCourses: [],
     };
   },
   created() {
@@ -243,6 +263,8 @@ export default {
         .getAllCourses()
         .then((res) => {
           this.courses = res.data;
+          this.finalCourses = this.courses;
+          this.updatedFinalCourses = "";
           this.newCourses = this.courses.slice(0, this.coursesPerPage);
           this.pages = this.newCourses.length / this.coursesPerPage + 1;
           this.$store.dispatch("courses/setAllCourses", res.data);
@@ -257,6 +279,8 @@ export default {
       this.$store.state.courses.searchedCourses.length != 0 &&
       this.$store.state.courses.searchedString
     ) {
+      this.updatedFinalCourses = ""
+      this.finalCourses = this.$store.state.courses.searchedCourses;
       this.newCourses = this.$store.state.courses.searchedCourses.slice(
         0,
         this.coursesPerPage
@@ -267,6 +291,9 @@ export default {
 
       // display filterd courses if user has applied filtered
     } else if (this.$store.state.courses.filteredCourses.length != 0) {
+      this.filteredCourses = this.$store.state.courses.filteredCourses;
+      this.finalCourses = this.$store.state.courses.filteredCourses;
+      this.updatedFinalCourses = ""
       this.newCourses = this.$store.state.courses.filteredCourses.slice(
         0,
         this.coursesPerPage
@@ -277,6 +304,8 @@ export default {
 
       // else display default courses
     } else {
+      this.finalCourses = this.$store.state.courses.updatedCourses;
+      this.updatedFinalCourses = "";
       this.newCourses = this.$store.state.courses.updatedCourses.slice(
         0,
         this.coursesPerPage
@@ -297,33 +326,6 @@ export default {
   },
 
   methods: {
-    selectCategory() {
-      console.log(this.category);
-      categoryData.getCategoryInfoByName(this.category).then((res) => {
-        this.cId = res.data._id;
-        courseData
-          .getCategoryWiseCourses(this.cId)
-          .then((res) => {
-            this.courses = res.data;
-          })
-          .catch((err) => {
-            console.log(err.response);
-          });
-
-        subcategoryData.getAllSubCategories(this.cId).then((res) => {
-          this.subcategories = res.data;
-        });
-      });
-    },
-    selectSubCategory() {
-      console.log(this.subcategory);
-      subcategoryData.getSubCateInfoByName(this.subcategory).then((res) => {
-        this.sId = res.data._id;
-        courseData.getSubCategoryWiseCourses(this.cId, this.sId).then((res) => {
-          this.courses = res.data;
-        });
-      });
-    },
     getAllCourses() {
       this.page = 1;
       this.$store.dispatch(
@@ -338,6 +340,8 @@ export default {
       this.$store.dispatch("courses/setFilterStatus", false);
       this.$refs.all.checked = true;
       this.$store.dispatch("courses/setSelectedFilter", "all");
+      this.finalCourses = this.courses;
+      this.updatedFinalCourses = ""
       this.newCourses = this.$store.state.courses.allCourses.slice(
         0,
         this.coursesPerPage
@@ -369,11 +373,19 @@ export default {
         })
         .catch((err) => {
           console.log(err.response);
-          // this.$router.push({ name: "login" });
+          this.$router.push({ name: "login" });
         });
     },
     viewCourse(courseId) {
       this.$router.push({ name: "courseInfo", params: { id: courseId } });
+    },
+    getReviews(courseId){
+      let reviews = courseData.courseReview(courseId).then((res)=>{
+        console.log(res.data);
+      }).catch((err)=>{
+        console.log(err.response.data)
+      })
+      return reviews.length
     },
     searchCourse(str) {
       this.queryString = str;
@@ -387,6 +399,8 @@ export default {
           );
         });
         this.$store.dispatch("courses/setSearchedCourses", courses);
+        this.finalCourses = courses;
+        this.updatedFinalCourses = ""
       } else {
         courses = this.$store.state.courses.updatedCourses.filter((course) => {
           return (
@@ -396,6 +410,8 @@ export default {
           );
         });
         this.$store.dispatch("courses/setSearchedCourses", courses);
+        this.finalCourses = courses;
+        this.updatedFinalCourses = ""
       }
       this.newCourses = courses.slice(0, this.coursesPerPage);
       this.pages = courses.length / this.coursesPerPage + 1;
@@ -414,7 +430,7 @@ export default {
               return course.price > 0;
             } else {
               this.$store.dispatch("courses/setSelectedFilter", "free");
-              return course.price == undefined;
+              return course.price == undefined || course.price == 0;
             }
           }
         );
@@ -429,12 +445,14 @@ export default {
               return course.price > 0;
             } else {
               this.$store.dispatch("courses/setSelectedFilter", "free");
-              return course.price == undefined;
+              return course.price == undefined || course.price == 0;
             }
           }
         );
       }
       this.$store.dispatch("courses/setFilteredCourses", filteredCourses);
+      this.finalCourses = filteredCourses;
+      this.updatedFinalCourses = ""
       this.newCourses = filteredCourses.slice(0, this.coursesPerPage);
       this.$store.dispatch("courses/setFilterStatus", true);
       // this.filterAppliedCourses = filteredCourses
@@ -457,6 +475,8 @@ export default {
           }
         );
         this.$store.dispatch("courses/setSearchedCourses", courses);
+        this.finalCourses = courses;
+        this.updatedFinalCourses = ""
         this.pages = courses.length / this.coursesPerPage + 1;
         this.newCourses = courses.slice(0, this.coursesPerPage);
       } else {
@@ -468,6 +488,8 @@ export default {
           0,
           this.coursesPerPage
         );
+        this.finalCourses = this.$store.state.courses.updatedCourses;
+        this.updatedFinalCourses = ""
       }
       this.$refs.all.checked = true;
       this.$store.dispatch("courses/setSelectedFilter", "all");
@@ -489,11 +511,55 @@ export default {
         // this.courses = data;
         this.newCourses = data.slice(0, this.coursesPerPage);
         this.pages = data.length / this.coursesPerPage + 1;
+        this.finalCourses = data;
+        this.updatedFinalCourses = ""
       }
+    },
+    sort(event) {
+      console.log(event.target.value);
+      let courses = this.finalCourses;
+
+      for (let i = 0; i < courses.length; i++) {
+        for (let j = 0; j < courses.length - i - 1; j++) {
+          if (!courses[j].price) {
+            courses[j].price = 0;
+          }
+          if (!courses[j + 1].price) {
+            courses[j + 1].price = 0;
+          }
+          if (event.target.value == "1") {
+            if (courses[j].price > courses[j + 1].price) {
+              let temp = courses[j];
+              courses[j] = courses[j + 1];
+              courses[j + 1] = temp;
+            }
+          } else if (event.target.value == "2") {
+            if (courses[j].price < courses[j + 1].price) {
+              let temp = courses[j];
+              courses[j] = courses[j + 1];
+              courses[j + 1] = temp;
+            }
+          } else if (event.target.value == "3") {
+            if (courses[j].rating < courses[j + 1].rating) {
+              let temp = courses[j];
+              courses[j] = courses[j + 1];
+              courses[j + 1] = temp;
+            }
+          }
+        }
+      }
+      this.updatedFinalCourses = courses;
+      this.page = 1;
+      this.newCourses = this.updatedFinalCourses.slice(0, this.coursesPerPage);
     },
     updateHandler(page) {
       console.log(page);
-      if (
+      if (this.updatedFinalCourses) {
+        this.newCourses = this.updatedFinalCourses.slice(
+          this.coursesPerPage * (page - 1),
+          this.coursesPerPage * page
+        );
+      }else if (
         this.$store.state.courses.searchedCourses.length != 0 &&
         this.$store.state.courses.searchedString
       ) {

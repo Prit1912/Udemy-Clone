@@ -59,6 +59,7 @@ export default {
       .then((res) => {
         this.reviews = res.data;
         this.reviewList = res.data;
+        this.error = ""
       })
       .catch((err) => {
         this.error = err.response.data;
@@ -80,6 +81,8 @@ export default {
           })
           if(this.reviewList.length == 0){
                 this.error = 'no reviews'
+            }else{
+              this.error = ""
             }
         }
       }

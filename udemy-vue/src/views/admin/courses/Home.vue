@@ -200,7 +200,9 @@ export default {
       courseData.deactivateCourse(id).then((res) => {
         console.log(res.data);
         this.inActiveCourses.push(id);
-      });
+        this.$store.dispatch("courses/setUpdatedCourses", []);
+        this.$store.dispatch("courses/setAllCourses", []);
+      })
     },
     activate(id) {
       courseData.activateCourse(id).then((res) => {
@@ -208,6 +210,8 @@ export default {
         this.inActiveCourses = this.inActiveCourses.filter((courseId) => {
           return courseId != id;
         });
+        this.$store.dispatch("courses/setUpdatedCourses", []);
+        this.$store.dispatch("courses/setAllCourses", []);
       });
     },
     getCourses(data) {

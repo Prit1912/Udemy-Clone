@@ -548,10 +548,12 @@ class CourseDomain {
 
   // see course review
   async seeCourseReview(req, res) {
-    const course = await courses.findOne({ instructor: req.user._id, _id: req.params.id });
-    if (!course) {
-      return res.status(404).send("this course is not uploaded by you");
-    }
+  //   if(req.user.role == 'instructor'){
+  //   const course = await courses.findOne({ instructor: req.user._id, _id: req.params.id });
+  //   if (!course) {
+  //     return res.status(404).send("this course is not uploaded by you");
+  //   }
+  // }
     const review = await reviews.find({ course: req.params.id }).populate('user');
     if (review.length == 0) {
       return res.status(404).send("no reviews");

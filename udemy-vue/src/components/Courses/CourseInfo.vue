@@ -3,9 +3,11 @@
     <div class="imgContainer">
       <img :src="course.courseImage.url" class="img-fluid courseImage border border-5" />
     </div>
-    <div class="content w-75 ms-auto me-auto">
+    <div class="content w-75 ms-auto me-auto p-3">
       <h3 class="mt-5">{{ course.name }}</h3>
-      <p>{{ course.description }}</p>
+      <div class="text-center">
+        <p>{{ course.description }}</p>
+      </div>
       <p><b> Instructor </b>: {{ course.instructor.name }}</p>
       <p v-if="course.price"><b> Price </b>: ₹{{ course.price }}</p>
       <p v-else>Price: Free</p>
@@ -41,18 +43,28 @@
       </div>
       </div>
     </div>
+  <div v-if="comp != 'instructor'" >
+  <h3 class="mt-5" style="color: blueviolet" >Reviews</h3>
+  <hr>
+  <Reviews :courseId="courseId" />
   </div>
+  </div>
+
 </template>
 
 <script>
 import cartData from "../../services/cart";
 import wishlistData from "../../services/wishlist";
 import courseData from "../../services/courses";
+import Reviews from "../../components/Instructor/Reviews.vue"
 export default {
   name: "courseInfo",
   props: {
     courseId: Number,
     comp: String
+  },
+  components:{
+    Reviews
   },
   data() {
     return {

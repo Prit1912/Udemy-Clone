@@ -23,7 +23,7 @@
     </div>
     <div class="categoryTable">
       <div class="table-responsive">
-        <table class="table table-bordered table-dark border-light table-hover text-center">
+        <table class="table table-bordered border-dark table-light border-light table-hover text-center">
           <thead>
             <tr>
               <th>Index</th>
@@ -37,7 +37,7 @@
               <td>{{ category.name }}</td>
               <td>
                 <button
-                  class="btn btn-light"
+                  class="btn btn-dark"
                   @click="
                     this.$router.push({
                       name: 'updateCategory',
@@ -64,7 +64,7 @@
     </div>
     <div class="subcategoryTable">
       <div class="table-responsive">
-        <table class="table table-bordered table-dark border-light table-hover text-center">
+        <table class="table table-bordered border-dark table-light border-light table-hover text-center">
           <thead>
             <tr>
               <th>Index</th>
@@ -81,7 +81,7 @@
               <td>{{ s.category.name }}</td>
               <td>
                 <button
-                  class="btn btn-light"
+                  class="btn btn-dark"
                   @click="
                     this.$router.push({
                       name: 'updateSubCategory',
@@ -173,7 +173,7 @@ a:hover {
 }
 
 .subcategoryTable {
-  height: 70vh;
+  height: 50vh;
   overflow: auto;
 }
 </style>
