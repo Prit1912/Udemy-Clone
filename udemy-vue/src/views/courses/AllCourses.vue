@@ -6,7 +6,7 @@
       </h2>
       <div class="row">
         <div class="col-sm-2 col-12">
-          <button class="btn btn-outline-dark" @click="getAllCourses">
+          <button class="btn btn-outline-dark my-2 my-sm-0 " @click="getAllCourses">
             All Courses
           </button>
         </div>
@@ -501,10 +501,12 @@ export default {
       if (data == "no course found") {
         this.courses = "no course found";
         this.$store.dispatch("courses/setUpdatedCourses", []);
+        this.$store.dispatch("courses/setSearchedString", null);
       } else {
         this.courses = data;
         this.$store.dispatch("courses/setUpdatedCourses", data);
         this.$store.dispatch("courses/setFilteredCourses", []);
+        this.$store.dispatch("courses/setSearchedString", null);
         this.page = 1;
         this.$refs.all.checked = true;
         // this.$store.state.courses.updatedCourses = data;

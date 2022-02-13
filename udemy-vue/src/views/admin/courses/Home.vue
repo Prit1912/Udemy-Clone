@@ -1,41 +1,40 @@
 <template>
   <div class="container my-5">
-    <div class="bg-light border rounded p-5">
+    <div class="rounded bg-light p-5">
+      <div class="row">
+      <div class="col-sm-10">
       <CategorySubCateSelect @courses="getCourses" />
-      <br /><br />
+      <br>
       <div class="row">
         <div class="col-sm-4">
-           <h5 style="color: blueviolet"> Search: </h5>
+          <h5 style="color: blueviolet">Search:</h5>
           <NormalSearch @query="searchCourse" />
         </div>
         <div class="col-sm-4">
-          <h5 style="color: blueviolet"> Filter: </h5>
-          <select class="form-select" @change="filterCourse" aria-label="Default select example">
+          <h5 style="color: blueviolet">Filter:</h5>
+          <select
+            class="form-select"
+            @change="filterCourse"
+            aria-label="Default select example"
+          >
             <option value="0" selected>All Courses</option>
-            <option value="1" >Active Courses</option>
+            <option value="1">Active Courses</option>
             <option value="2">Inactive Courses</option>
           </select>
         </div>
-        <!-- <div class="col-sm-2">
-        <button class="btn" @click="getAllCourses"> <span style="color:blueviolet" > <b> All courses </b></span>  </button>
       </div>
-      <div class="col-sm-2">
-         <button class="btn" @click="searchActiveCourses"> <span style="color:blueviolet" > <b> Active courses </b></span>  </button>
+      <br />
       </div>
-      <div class="col-sm-2">
-         <button class="btn" @click="searchInactiveCourses"> <span style="color:blueviolet" > <b> Inactive courses </b> </span> </button>
-      </div> -->
       </div>
     </div>
+    <hr>
     <div v-if="!coursesList">
       <h1>no course found</h1>
     </div>
     <div v-else>
       <div v-if="coursesList" class="p-sm-5 p-0 my-3 courses">
         <div v-for="course of coursesList" :key="course._id">
-          <div
-            class="row mx-2 mx-sm-5 p-3 p-sm-0 course border border-dark my-3"
-          >
+          <div class="row mx-2 mx-sm-5 p-3 p-sm-0 course my-3">
             <div class="col-md-3 align-self-center">
               <img :src="course.courseImage.url" class="img-fluid" alt="" />
             </div>
@@ -95,6 +94,7 @@
               </button>
             </div>
           </div>
+          <hr class="border border-dark" />
         </div>
         <div class="mx-5 mt-4">
           <v-pagination
@@ -183,18 +183,24 @@ export default {
     searchCourse(str) {
       console.log(str);
       this.queryString = str.toLowerCase();
-      let courses = this.courses.filter((course)=>{
-        return(
+      let courses = this.courses.filter((course) => {
+        return (
           course.name.toLowerCase().match(this.queryString) ||
           course.description.toLowerCase().match(this.queryString) ||
-          course.category.name.toLowerCase().match(this.queryString) || 
+          course.category.name.toLowerCase().match(this.queryString) ||
           course.instructor.email.toLowerCase().match(this.queryString)
-        )
-      })
+        );
+      });
       this.updatedCourseList = courses;
-      this.coursesList = this.updatedCourseList.slice(this.coursesPerPage*(this.page-1),this.coursesPerPage*this.page)
+      this.coursesList = this.updatedCourseList.slice(
+        this.coursesPerPage * (this.page - 1),
+        this.coursesPerPage * this.page
+      );
       this.page = 1;
-      this.pages = (courses.length/this.coursesPerPage)%1 == 0 ? courses.length/this.coursesPerPage : Math.ceil(courses.length/this.coursesPerPage)
+      this.pages =
+        (courses.length / this.coursesPerPage) % 1 == 0
+          ? courses.length / this.coursesPerPage
+          : Math.ceil(courses.length / this.coursesPerPage);
     },
     deActivate(id) {
       courseData.deactivateCourse(id).then((res) => {
@@ -202,7 +208,7 @@ export default {
         this.inActiveCourses.push(id);
         this.$store.dispatch("courses/setUpdatedCourses", []);
         this.$store.dispatch("courses/setAllCourses", []);
-      })
+      });
     },
     activate(id) {
       courseData.activateCourse(id).then((res) => {
@@ -222,12 +228,15 @@ export default {
       if (data == "no course found") {
         this.coursesList = null;
       } else {
-        this.updatedCourseList = courses
+        this.updatedCourseList = courses;
         this.coursesList = this.updatedCourseList.slice(
           this.coursesPerPage * (this.page - 1),
           this.page * this.coursesPerPage
         );
-        this.pages = (data.length/this.coursesPerPage)%1 == 0 ? data.length/this.coursesPerPage : Math.ceil(data.length/this.coursesPerPage);
+        this.pages =
+          (data.length / this.coursesPerPage) % 1 == 0
+            ? data.length / this.coursesPerPage
+            : Math.ceil(data.length / this.coursesPerPage);
       }
     },
     searchActiveCourses() {
@@ -260,13 +269,13 @@ export default {
           ? inActiveCourses.length / this.coursesPerPage
           : Math.ceil(inActiveCourses.length / this.coursesPerPage);
     },
-    filterCourse(event){
-      console.log(event.target.value)
-      if(event.target.value == 0){
+    filterCourse(event) {
+      console.log(event.target.value);
+      if (event.target.value == 0) {
         this.getAllCourses();
-      }else if(event.target.value == 1){
+      } else if (event.target.value == 1) {
         this.searchActiveCourses();
-      }else if(event.target.value == 2){
+      } else if (event.target.value == 2) {
         this.searchInactiveCourses();
       }
     },
@@ -282,11 +291,14 @@ export default {
 
 <style scoped>
 .course {
-  box-shadow: 5px 5px 15px black;
   background-color: white;
 }
 
-.course:hover {
-  transform: scale(1.02);
+.course button {
+  display: none;
+}
+
+.course:hover button {
+  display: inline-block;
 }
 </style>

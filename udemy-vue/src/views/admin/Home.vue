@@ -11,11 +11,11 @@
       <p><i class="fas fa-arrow-circle-right"></i> Live Offers - {{noOfLiveOffers}} </p>
       <p><i class="fas fa-arrow-circle-right"></i> Total Courses - {{noOfCourses}} </p>
       <p><i class="fas fa-arrow-circle-right"></i> Total Users - {{noOfUsers}} </p>
-
   </div>
 </template>
 
 <script>
+
 import userData from '../../services/users'
 import categoryData from '../../services/category'
 import offerData from '../../services/offers'
@@ -69,7 +69,7 @@ export default {
             this.noOfUsers = res.data.length;
         })
 
-    }
+    },
 }
 </script>
 

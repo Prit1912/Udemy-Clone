@@ -124,9 +124,9 @@ export default {
     const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
 
     const validationSchema = yup.object({
-      name: yup.string().min(2).required(),
+      name: yup.string().min(2).required('name is required'),
       email: yup.string().email('must be a valid email').required('email is required'),
-      phone: yup.string().matches(phoneRegExp, 'Phone number is not valid').max(10, 'max 10 digits are allowed'),
+      phone: yup.string().matches(phoneRegExp, 'Phone number is not valid').max(10, 'max 10 digits are allowed').required('phone number is required'),
       password: yup.string().min(4, "minimum 4 character required").required('Password is required'),
       role: yup.string().required()
     })

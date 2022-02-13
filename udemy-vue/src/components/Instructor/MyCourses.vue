@@ -17,12 +17,12 @@
     <div class="row p-sm-5 p-1">
       <div class="col-sm-10 col-12 me-auto ms-auto">
         <div v-for="course in coursesList" :key="course._id">
-          <div class="row my-4 course border border-3">
+          <div class="row my-4 course">
             <div class="col-md-3 col-12 align-self-center">
               <img :src="course.courseImage.url" class="img-fluid courseImage" alt="..." />
             </div>
             <div class="col-md-6 col-12 align-self-center">
-              <h4 class="text-justify">{{ course.name }}</h4>
+              <h5 class="text-justify">{{ course.name }}</h5>
               <p v-if="course.price">Price : ₹{{ course.price }}</p>
               <p v-else>Price : Free</p>
               <p>Rating : {{ course.rating }}/5</p>
@@ -74,6 +74,7 @@
               </button>
             </div>
           </div>
+          <hr class="border border-dark" >
         </div>
         <v-pagination
         ref="pagination"
@@ -150,7 +151,10 @@ export default {
 </script>
 
 <style scoped>
-  .course{
-    box-shadow: 5px 5px 15px black;
+  .course button {
+    display: none;
+  }
+  .course:hover button{
+    display: inline-block;
   }
 </style>

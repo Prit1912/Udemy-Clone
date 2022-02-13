@@ -99,7 +99,7 @@ class UserDomain{
             service: 'gmail',
             auth: {
               user: 'pritrojivadiya@gmail.com',
-              pass: 'actenhfwyeuxowtl'
+              pass: 'cywhubqmgvodibji'
             }
           });
           

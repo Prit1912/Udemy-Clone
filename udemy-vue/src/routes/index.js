@@ -1,4 +1,4 @@
-import { createWebHistory, createRouter } from "vue-router";
+import { createWebHashHistory, createRouter } from "vue-router";
 import store from '../store/index'
 
 // auth routes
@@ -50,6 +50,9 @@ import AdminCourseBuyers from '../views/admin/courses/Buyers.vue';
 import AdminCourseUpdate from '../views/admin/courses/UpdateCourse.vue';
 import AddOffer from '../views/admin/offers/AddOffer.vue';
 import UpdateOffer from '../views/admin/offers/UpdateOffer.vue';
+
+// error page
+import error from '../views/error.vue'
 
 const routes = [
   {
@@ -282,12 +285,17 @@ const routes = [
         component: AddUser
       }
     ]
-  }
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    name: "error",
+    component: error
+  },
 ];
 
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHashHistory(),
   routes,
 });
 

@@ -32,6 +32,15 @@ class courseService{
         return http.get(`api/courses/${id}`)
     }
 
+    // update video watched progress
+    updateProgress(id,data){    
+        return http.put(`api/user/courses/${id}`,data,{
+            headers:{
+                'x-access-token': store.state.user.token
+            }
+        })
+    }
+
     // add course to wishlist
     addCourseToWishlist(id){
         console.log(store)

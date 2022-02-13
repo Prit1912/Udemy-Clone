@@ -167,7 +167,6 @@ import userData from "../../services/users";
 import courseData from "../../services/courses";
 import store from "../../store/index";
 import html2pdf from 'html2pdf.js'
-
 export default {
   name: "fullCourse",
   props: {
@@ -197,7 +196,6 @@ export default {
     userData.userInfo().then((res)=>{
       this.name = res.data.name;
     })
-
     courseData
       .getCourseById(this.courseId)
       .then((res) => {
@@ -223,7 +221,6 @@ export default {
         document.getElementsByClassName("videolink")[this.clicked + 1].click();
         // this.videoUrl = this.course.videos[1].url;
         // console.log(this.videoUrl)
-
         // if (this.clicked < this.course.videos.length) {
         //   console.log(
         //     document.getElementsByClassName("videolink")[this.clicked].nextSibling
@@ -239,7 +236,6 @@ export default {
     let id = this.courseId;
     if (this.course) {
       let video = document.getElementById("myVideo");
-
       store.state.courses.courses.map((course)=>{
         if(course.id == id){
           for(let i = 0;i<course.videos.length;i++){
@@ -256,7 +252,6 @@ export default {
           }
         }
       })
-
       let len;
       let count = 0;
       store.state.courses.courses.map((course) => {
@@ -278,7 +273,6 @@ export default {
       });
       console.log(((count / len) * 100).toFixed(2));
       this.per = ((count / len) * 100).toFixed(2);
-
       setInterval(function () {
         if (video.readyState > 0) {
           var minutes = parseInt(video.duration / 60, 10);

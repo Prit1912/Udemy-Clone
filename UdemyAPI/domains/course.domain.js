@@ -272,6 +272,18 @@ class CourseDomain {
     res.send(course);
   }
 
+  // update video watched progress
+  async updateProgress(req,res){
+    console.log(req.body);
+    console.log(req.params.id)
+    const course = await purchases
+      .find({ user: req.user._id ,courses: req.params.id })
+      .populate("courses")
+      .select({courses: req.params.id})
+      course[0].courses[0].videos = req.body;
+      res.send(course)
+  }
+
   // rate & give review course
   async rateCourse(req, res) {
     let r;
