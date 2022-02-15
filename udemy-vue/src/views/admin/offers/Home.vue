@@ -128,6 +128,8 @@ export default {
     }
   },
   methods: {
+
+    // delete offer permenantly
     deleteOffer(id) {
       offerData
         .deleteOffer(id)
@@ -142,6 +144,8 @@ export default {
           console.log(err.response);
         });
     },
+
+    // make offer live
     makeOfferLive(id) {
       console.log(id);
       offerData
@@ -156,6 +160,8 @@ export default {
           console.log(err.response);
         });
     },
+
+    // remove offer
     removeOffer(id) {
       offerData
         .removeOffer(id)
@@ -171,9 +177,13 @@ export default {
           console.log(err.response);
         });
     },
+
+    // search offer
     searchOffer(str){
       this.queryString = str.toLowerCase();
     },
+
+    // update list of offer to display on different pages
     updateHandler(page) {
       console.log(page);
       this.offersList = this.offers.slice(10 * (page - 1), page * 10);

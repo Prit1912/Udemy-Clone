@@ -139,7 +139,7 @@ export default {
       str = str.toLowerCase();
       this.updatedCategories = this.categories.filter((category)=>{
         return(
-          category.name.match(str)
+          category.name.toLowerCase().match(str)
         )
       })
     },
@@ -149,7 +149,7 @@ export default {
         for(let s of subCategory){
           return(
             s.name.match(str) ||
-            s.category.name.match(str)
+            s.category.name.toLowerCase().match(str)
           )
         }
       })
