@@ -26,7 +26,7 @@
               type="text"
               class="form-control"
               id="formGroupExampleInput2"
-              placeholder="Another input placeholder"
+              placeholder="Enter course Ids'"
             />
             <span class="error">{{ errorIds }}</span>
           </div>
@@ -127,6 +127,9 @@ export default {
           console.log(res.data);
           this.message = "offer added successfully";
           this.error = "";
+          setTimeout(()=>{
+            this.$router.push({name: 'offers'})
+          },1000)
         })
         .catch((err) => {
           console.log(err.response);

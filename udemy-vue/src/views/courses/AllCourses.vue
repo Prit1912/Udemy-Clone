@@ -364,6 +364,7 @@ export default {
         })
         .catch((err) => {
           console.log(err.response);
+          localStorage.setItem('redirectTo','courses')
           this.$router.push({ name: "login" });
         });
     },
@@ -379,6 +380,7 @@ export default {
         })
         .catch((err) => {
           console.log(err.response);
+          localStorage.setItem('redirectTo','courses')
           this.$router.push({ name: "login" });
         });
     },

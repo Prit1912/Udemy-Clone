@@ -198,12 +198,14 @@ export default {
 
     // deactivate course
     deActivate(id) {
-      courseData.deactivateCourse(id).then((res) => {
-        console.log(res.data);
-        this.inActiveCourses.push(id);
-        this.$store.dispatch("courses/setUpdatedCourses", []);
-        this.$store.dispatch("courses/setAllCourses", []);
-      });
+      if(confirm("Do you really want to deactivate this course?")){
+        courseData.deactivateCourse(id).then((res) => {
+          console.log(res.data);
+          this.inActiveCourses.push(id);
+          this.$store.dispatch("courses/setUpdatedCourses", []);
+          this.$store.dispatch("courses/setAllCourses", []);
+        });
+      }
     },
 
     // activate course

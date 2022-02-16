@@ -1,7 +1,5 @@
 require("dotenv").config();
 
-const checksum_lib = require("./Paytm/checksum");
-const config = require("./Paytm/config");
 const Razorpay = require("razorpay");
 const shortid = require("shortid");
 const crypto = require("crypto");

@@ -164,10 +164,12 @@ export default {
 
     // block user by id
     block(id) {
-      userData.blockUser(id).then((res) => {
-        console.log(res.data);
-        this.blockedUsers.push(id);
-      });
+      if(confirm("Do you really want to block this user?")){
+        userData.blockUser(id).then((res) => {
+          console.log(res.data);
+          this.blockedUsers.push(id);
+        });
+      }
     },
 
     // unblock user by id
