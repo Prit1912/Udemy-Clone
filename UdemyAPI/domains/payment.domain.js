@@ -5,8 +5,8 @@ const shortid = require("shortid");
 const crypto = require("crypto");
 
 var instance = new Razorpay({
-  key_id: 'rzp_test_xfHB8uNca5sUFH',
-  key_secret: 'LcQRMwJJIgf2YGRjrPlKEfCe',
+  key_id: process.env.Razorpay_key_id,
+  key_secret: process.env.Razorpay_key_secret,
 });
 
 // const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY);

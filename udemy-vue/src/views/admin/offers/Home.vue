@@ -29,7 +29,9 @@
           <tr v-for="(offer, index) in filteredOffer" :key="index">
             <td>{{ index + 1 }}</td>
             <td>{{ offer.offerName }}</td>
-            <td>{{ offer.courses }}</td>
+            <td>
+              <span v-for="(course,index) of offer.courses" :key="course.id">{{course.id}}<span v-if="index != offer.courses.length-1" >,</span></span>
+            </td>
             <td>{{ offer.discount }}</td>
             <td>
               <span v-if="liveOffer.includes(offer._id)">
