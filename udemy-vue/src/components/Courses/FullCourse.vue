@@ -189,17 +189,31 @@ export default {
     userData.userInfo().then((res)=>{
       this.name = res.data.name;
     })
-    courseData
+
+    userData.getProgress(this.courseId).then((res)=>{
+      console.log(res.data);
+      let obj = res.data;
+      let courses = obj.courses
+      let myCourse = {}
+      for(let course of courses){
+        if(course.courseId == this.courseId){
+          myCourse = course;
+        }
+      }
+      let myVideos = myCourse.videos;
+      console.log(myVideos)
+      store.state.courses.courses = [];
+      store.dispatch("courses/setCourses", {
+          id: this.courseId,
+          videos: myVideos,
+        });
+      courseData
       .getCourseById(this.courseId)
       .then((res) => {
         this.course = res.data;
         console.log(this.course)
         res.data.videos = res.data.videos.map((data) => {
-          if(data.progressPer){
-            return data;
-          }else{
             return { ...data, progressPer: 0 };
-          }
         });
         // console.log(res.data.videos)
         store.dispatch("courses/setCourses", {
@@ -211,6 +225,26 @@ export default {
       .catch((err) => {
         console.log(err.response);
       });
+    }).catch(()=>{
+      courseData
+      .getCourseById(this.courseId)
+      .then((res) => {
+        this.course = res.data;
+        console.log(this.course)
+        res.data.videos = res.data.videos.map((data) => {
+            return { ...data, progressPer: 0 };
+        });
+        // console.log(res.data.videos)
+        store.dispatch("courses/setCourses", {
+          id: this.courseId,
+          videos: res.data.videos,
+        });
+        this.videoUrl = this.course.videos[0].url;
+      })
+      .catch((err) => {
+        console.log(err.response);
+      });
+    })
   },
   mounted(){
        document.getElementById("myVideo").addEventListener("ended", () => {
@@ -296,6 +330,19 @@ export default {
     }
   },
   unmounted() {
+    let course = this.$store.state.courses.courses.filter((course)=>{
+      return course.id == this.courseId
+    })
+    console.log(course[0].videos)
+    let data = {
+      'videos': course[0].videos
+    }
+    console.log(data);
+    userData.setProgress(this.courseId,data).then((res)=>{
+      console.log(res.data);
+    }).catch((err)=>{
+      console.log(err.response.data);
+    })
     this.$router.go();
   },
   methods: {
