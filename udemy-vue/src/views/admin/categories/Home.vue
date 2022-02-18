@@ -37,7 +37,7 @@
               <td>{{ category.name }}</td>
               <td>
                 <button
-                  class="btn btn-dark"
+                  class="btn btn-dark me-2"
                   @click="
                     this.$router.push({
                       name: 'updateCategory',
@@ -47,6 +47,7 @@
                 >
                   Edit
                 </button>
+                <button class="btn btn-danger" @click="deleteCategory(category._id)">Delete</button>
               </td>
             </tr>
           </tbody>
@@ -81,7 +82,7 @@
               <td>{{ s.category.name }}</td>
               <td>
                 <button
-                  class="btn btn-dark"
+                  class="btn btn-dark me-2"
                   @click="
                     this.$router.push({
                       name: 'updateSubCategory',
@@ -91,6 +92,7 @@
                 >
                   Edit
                 </button>
+                <button class="btn btn-danger" @click="deleteSubCategory(s.category._id,s._id)">Delete</button>
               </td>
             </tr>
           </tbody>
@@ -103,7 +105,8 @@
 <script>
 import categoryData from "../../../services/category";
 import subCategoryData from "../../../services/subcategory";
-import NormalSearch from '../../../components/Search/NormalSearch.vue'
+import courseData from '../../../services/courses';
+import NormalSearch from '../../../components/Search/NormalSearch.vue';
 export default {
   name: "categories",
   data() {
@@ -152,6 +155,41 @@ export default {
             s.category.name.toLowerCase().match(str)
           )
         }
+      })
+    },
+    deleteCategory(cId){
+      console.log(cId);
+      courseData.getAllCourses().then((res)=>{
+        let courses = res.data;
+        for(let course of courses){
+          if(course.category._id == cId){
+            alert('category cannot be deleted because it contains some courses')
+            return;
+          }
+        }
+        categoryData.deleteCategory(cId).then((res)=>{
+          alert(res.data);
+          this.$router.go();
+        }).catch((err)=>{
+          console.log(err.response.data);
+        })
+      })
+    },
+    deleteSubCategory(cId, sId){
+      courseData.getAllCourses().then((res)=>{
+        let courses = res.data;
+        for(let course of courses){
+            if(course.subcategory && course.category._id == cId && course.subcategory._id == sId){
+              alert('subcategory cannot be deleted because it contains some courses')
+              return
+            }
+        }
+        subCategoryData.deleteSubCategory(cId,sId).then(()=>{
+          alert('subcategory deleted');
+          this.$router.go();
+        }).catch((err)=>{
+          console.log(err.response.data);
+        })
       })
     }
   }

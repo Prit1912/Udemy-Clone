@@ -1,5 +1,8 @@
 <template>
   <div class="container my-5">
+    <!-- <input type="datetime-local" id="meeting-time"
+       name="meeting-time" value="2018-06-12T19:30"
+       min="2018-06-07T00:00" max="2018-06-14T00:00"> -->
     <!-- <pre class="language-json"><code>{{ value  }}</code></pre> -->
     <h3 style="color: blueviolet">Add Offer</h3>
     <div class="row">
