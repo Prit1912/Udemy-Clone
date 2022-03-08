@@ -1,0 +1,199 @@
+[{
+  "_id": 1,
+  "name": "Prit",
+  "email": "prit@gmail.com",
+  "phone": 9585756544,
+  "password": "$2b$10$2Q3ubkFoipfJHBPrrQTg1.zqMQC/2taXO0y3/R9vkLtkTgqHp6Caq",
+  "role": "admin",
+  "isActive": true,
+  "__v": 0
+},{
+  "_id": 2,
+  "name": "rohit",
+  "email": "rohit@gmail.com",
+  "phone": 8895756545,
+  "password": "$2b$10$76w6DNuC.yWC8J9cwkXOROMkYpjLKEN6BHUBw9fo2H4RPMWHAKigq",
+  "role": "admin",
+  "isActive": true,
+  "__v": 0
+},{
+  "_id": 3,
+  "name": "Man",
+  "email": "man@gmail.com",
+  "phone": 9895756545,
+  "password": "$2b$10$C7iyqSFYJPi08SmHMAJmVeOI0p/dPuxSz6hNvVKhi7rDxB7iu8px6",
+  "role": "instructor",
+  "isActive": true,
+  "__v": 0
+},{
+  "_id": 4,
+  "name": "Meet",
+  "email": "meet@gmail.com",
+  "phone": 9895756546,
+  "password": "$2b$10$fPbrbPG33Ymi74AaCymbweATe0uVVoVPWz7Z7IudWHtJ5fYWJfkWu",
+  "role": "instructor",
+  "isActive": true,
+  "__v": 0
+},{
+  "_id": 5,
+  "name": "Tirth",
+  "email": "tirth@gmail.com",
+  "phone": 9795756546,
+  "password": "$2b$10$sZ.v8fzb0C3z/Dj8PPxLCOouBNGx4o2f6mizW4l1OeZUtQGJNbwmm",
+  "role": "user",
+  "isActive": true,
+  "__v": 0
+},{
+  "_id": 6,
+  "name": "Raj",
+  "email": "raj@gmail.com",
+  "phone": 9795756576,
+  "password": "$2b$10$CVbk0VWqrwWmJTi2XMyPu.Cwvar4bCR6W/CheXTxZUGBI7nSWT3dS",
+  "role": "user",
+  "isActive": true,
+  "__v": 0
+},{
+  "_id": 7,
+  "name": "jay",
+  "email": "jay@gmail.com",
+  "phone": 7795756576,
+  "password": "$2b$10$ghLL67OYHbaI.0ipohutBubsWHdxZ1QwZTU4e94l8MaNy34.Q1BFq",
+  "role": "user",
+  "isActive": true,
+  "__v": 0
+},{
+  "_id": 8,
+  "name": "Abhi",
+  "email": "abhi@gmail.com",
+  "phone": 7095756576,
+  "password": "$2b$10$ss3A5B2DW.b/9ZZTAweBDOfMzRD/c1ju9wMr6LCOu.vGMYEUFyZVG",
+  "role": "user",
+  "isActive": true,
+  "__v": 0
+},{
+  "_id": 9,
+  "name": "abc",
+  "email": "abc@gmail.com",
+  "phone": 8574962585,
+  "password": "$2b$10$yAIUxP4gZAHJ2myTvh4VSOsvFcJIbAmFh7x8C6FPW.Kew6POzBP2i",
+  "role": "user",
+  "isActive": true,
+  "__v": 0
+},{
+  "_id": 10,
+  "name": "user1",
+  "email": "user1@gmail.com",
+  "phone": 8574962584,
+  "password": "$2b$10$2CtCi2BHRk3K0FXdK98EfuPxhPNeuNNPPff/Y7JWFLzMHv727ZOiC",
+  "role": "admin",
+  "isActive": true,
+  "__v": 0
+},{
+  "_id": 11,
+  "name": "Test",
+  "email": "test@gmail.com",
+  "phone": 7889897855,
+  "password": "$2b$10$PjZ2PiFdm1rGWls9grRnBuECewxJXQ.JV9spRmAwnFf7icspzFU6i",
+  "role": "user",
+  "isActive": false,
+  "__v": 0
+},{
+  "_id": 12,
+  "name": "test1",
+  "email": "test1@gmail.com",
+  "phone": 7898654512,
+  "password": "$2b$10$.3xhOD8bwjgxrqEwYjTvMe/CBwl3bCUfQ30dldLSKia09x1uSlwz2",
+  "role": "instructor",
+  "isActive": true,
+  "__v": 0
+},{
+  "_id": 13,
+  "name": "Parth",
+  "email": "parth@gmail.com",
+  "phone": 9878586545,
+  "password": "$2b$10$yVky3xme1USbSALmoaP8TOk/7E2LWJX.xydeT/xngxhaTqFduBMRG",
+  "role": "user",
+  "isActive": true,
+  "__v": 0
+},{
+  "_id": 14,
+  "name": "Shyam",
+  "email": "shyam@gmail.com",
+  "phone": 9863257445,
+  "password": "$2b$10$8I/wPe4MY3BjbO.sjzX2veHD08nqz6kobzDzMe0x0YGgzFE31py7G",
+  "role": "instructor",
+  "isActive": true,
+  "__v": 0
+},{
+  "_id": 15,
+  "name": "Ronak",
+  "email": "ronak@gmail.com",
+  "phone": 8989787885,
+  "password": "$2b$10$pLG5sNS/Z60MvXH..q/4Fuxl2bCyzr7RC0tZZ4oDGn831bEo72Zee",
+  "role": "user",
+  "isActive": true,
+  "__v": 0
+},{
+  "_id": 16,
+  "name": "test2",
+  "email": "test2@gmail.com",
+  "phone": 7898856545,
+  "password": "$2b$10$JP76fpcdo4AkWZjiRJx2OuCBd6JAFGAfHzkeGo8P0rNYaAy9Tp75G",
+  "role": "user",
+  "isActive": true,
+  "__v": 0
+},{
+  "_id": 17,
+  "name": "harsh",
+  "email": "harsh@gmail.com",
+  "phone": 9878456523,
+  "password": "$2b$10$1C02J4/AqhUjoppLcktQ2uJnEB7QHfu8oxmvHrZZwRw/6.QOyRqSe",
+  "role": "user",
+  "isActive": true,
+  "__v": 0
+},{
+  "_id": 18,
+  "name": "kartik",
+  "email": "kartik@gmail.com",
+  "phone": 9878458569,
+  "password": "$2b$10$mc8UJ.2urHCIVb74MEwBEObcvTjxFNhvzy.H1qGaoWOFjPYGsc3Be",
+  "role": "user",
+  "isActive": true,
+  "__v": 0
+},{
+  "_id": 19,
+  "name": "P1",
+  "email": "p1@gmail.com",
+  "phone": 9878456585,
+  "password": "$2b$10$67o3d.cpwD8egEw8OQYl6erBj82HQXOhGR7/k46VSSHFJf9Q57VwW",
+  "role": "user",
+  "isActive": true,
+  "__v": 0
+},{
+  "_id": 20,
+  "name": "vishva",
+  "email": "vishva@gmail.com",
+  "phone": 9878858587,
+  "password": "$2b$10$thYDIiSuNooT/FfHn1obUOVNo5UEsB5aSa92FiXExSsbfodis57FW",
+  "role": "user",
+  "isActive": true,
+  "__v": 0
+},{
+  "_id": 21,
+  "name": "test3",
+  "email": "test3@gmailcom",
+  "phone": 9878889774,
+  "password": "$2b$10$4sKKyaEHmRn1hnpcUqRhWeuRos/jPHHqOg99L9yk6nFY57IYT7GMS",
+  "role": "user",
+  "isActive": true,
+  "__v": 0
+},{
+  "_id": 22,
+  "name": "inst1",
+  "email": "inst1@gmail.com",
+  "phone": 8798456585,
+  "password": "$2b$10$2EY5Bu8F30RN/zIDM79ZlOO06O2mVkbKg0KJ9tF.YrQQ3.gc9THwe",
+  "role": "instructor",
+  "isActive": true,
+  "__v": 0
+}]

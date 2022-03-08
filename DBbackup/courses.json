@@ -1,0 +1,724 @@
+[{
+  "_id": 1,
+  "name": "Python Bootcamp From Zero to Advance",
+  "description": "Master Python by building 100 projects in 100 days. Learn data science, automation, build websites, games and apps!",
+  "courseImage": {
+    "name": "p1.jpg",
+    "url": "http://res.cloudinary.com/da6qjbsjz/image/upload/v1644985026/udemy/instructor1/imagespublic/images/1644985025574.jpg.jpg"
+  },
+  "videos": [
+    {
+      "name": "My Video2.mp4",
+      "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1645159293/udemy/instructor3/videospublic/videos/1645159106619.mp4.mp4"
+    },
+    {
+      "name": "ENotes.mp4",
+      "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1642497991/udemy/instructor3/videospublic/videos/1642497933070.mp4.mp4"
+    },
+    {
+      "name": "My Video3.mp4",
+      "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1644321530/udemy/instructor1/videospublic/videos/1644321512478.mp4.mp4"
+    }
+  ],
+  "resources": {
+    "name": "original (1).zip",
+    "url": "http://res.cloudinary.com/da6qjbsjz/raw/upload/v1644321299/udemy/instructor1/resourcespublic/resources/1644321296099.zip"
+  },
+  "category": 1,
+  "isPaid": true,
+  "isActive": true,
+  "instructor": 3,
+  "rating": 0,
+  "__v": 0,
+  "price": 3000,
+  "offerPrice": 1800
+},{
+  "_id": 2,
+  "name": "Hands - On Python & R In Data Science",
+  "description": "Learn to create Machine Learning Algorithms in Python and R from two Data Science experts. Code templates included.",
+  "courseImage": {
+    "name": "p2.jpg",
+    "url": "http://res.cloudinary.com/da6qjbsjz/image/upload/v1643905995/udemy/instructor3/imagespublic/images/1643905992648.jpg.jpg"
+  },
+  "videos": [
+    {
+      "name": "My Video2.mp4",
+      "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1644043475/udemy/instructor3/videospublic/videos/1644043399488.mp4.mp4"
+    },
+    {
+      "name": "My Video3.mp4",
+      "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1644043555/udemy/instructor3/videospublic/videos/1644043399532.mp4.mp4"
+    },
+    {
+      "name": "ENotes.mp4",
+      "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1644044044/udemy/instructor3/videospublic/videos/1644043727633.mp4.mp4"
+    }
+  ],
+  "resources": {
+    "name": "jobportal.zip",
+    "url": "http://res.cloudinary.com/da6qjbsjz/raw/upload/v1643905853/udemy/instructor3/resourcespublic/resources/1643905808758.zip"
+  },
+  "category": 1,
+  "subcategory": 3,
+  "isPaid": true,
+  "isActive": true,
+  "instructor": 3,
+  "rating": 0,
+  "__v": 0,
+  "price": 5000
+},{
+  "_id": 3,
+  "name": "Python for Data Science",
+  "description": "Learn how to use NumPy, Pandas, Seaborn , Matplotlib , Plotly , Scikit-Learn , Machine Learning, Tensorflow , and more!",
+  "courseImage": {
+    "name": "p3.jpg",
+    "url": "http://res.cloudinary.com/da6qjbsjz/image/upload/v1642509194/udemy/instructor3/imagespublic/images/1642509191727.jpg.jpg"
+  },
+  "videos": [
+    {
+      "name": "DE.mp4",
+      "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1642509259/udemy/instructor3/videospublic/videos/1642509191734.mp4.mp4"
+    },
+    {
+      "name": "My Video2.mp4",
+      "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1642509284/udemy/instructor3/videospublic/videos/1642509192077.mp4.mp4"
+    },
+    {
+      "name": "My Video3.mp4",
+      "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1642509315/udemy/instructor3/videospublic/videos/1642509192117.mp4.mp4"
+    }
+  ],
+  "resources": {
+    "name": "original (1).zip",
+    "url": "http://res.cloudinary.com/da6qjbsjz/raw/upload/v1642509323/udemy/instructor3/resourcespublic/resources/1642509191730.zip"
+  },
+  "category": 1,
+  "subcategory": 3,
+  "isPaid": false,
+  "isActive": true,
+  "instructor": 3,
+  "rating": 0,
+  "__v": 0
+},{
+  "_id": 4,
+  "name": "Learn Python Programming Masterclass",
+  "description": "This Python For Beginners Course Teaches You The Python Language Fast. Includes Python Online Training With Python 3",
+  "courseImage": {
+    "name": "p4.jpg",
+    "url": "http://res.cloudinary.com/da6qjbsjz/image/upload/v1642509673/udemy/instructor3/imagespublic/images/1642509667855.jpg.jpg"
+  },
+  "videos": [
+    {
+      "name": "DE.mp4",
+      "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1642509818/udemy/instructor3/videospublic/videos/1642509667864.mp4.mp4"
+    },
+    {
+      "name": "My Video2.mp4",
+      "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1642509850/udemy/instructor3/videospublic/videos/1642509668176.mp4.mp4"
+    },
+    {
+      "name": "My Video3.mp4",
+      "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1642509887/udemy/instructor3/videospublic/videos/1642509668221.mp4.mp4"
+    }
+  ],
+  "resources": {
+    "name": "original (1).zip",
+    "url": "http://res.cloudinary.com/da6qjbsjz/raw/upload/v1642509915/udemy/instructor3/resourcespublic/resources/1642509667862.zip"
+  },
+  "category": 1,
+  "isPaid": false,
+  "isActive": true,
+  "instructor": 3,
+  "rating": 0,
+  "__v": 0
+},{
+  "_id": 5,
+  "name": "The Python Mega Course 2022",
+  "description": "Go from Python absolute beginner to building advanced Python programs! Learn Django, Flask, GUI, web scraping, & more!",
+  "courseImage": {
+    "name": "p5.jpg",
+    "url": "http://res.cloudinary.com/da6qjbsjz/image/upload/v1642567961/udemy/instructor3/imagespublic/images/1642567958883.jpg.jpg"
+  },
+  "videos": [
+    {
+      "name": "My Video2.mp4",
+      "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1642567992/udemy/instructor3/videospublic/videos/1642567958940.mp4.mp4"
+    },
+    {
+      "name": "My Video3.mp4",
+      "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1642568034/udemy/instructor3/videospublic/videos/1642567958980.mp4.mp4"
+    }
+  ],
+  "resources": {
+    "name": "original.zip",
+    "url": "http://res.cloudinary.com/da6qjbsjz/raw/upload/v1642568065/udemy/instructor3/resourcespublic/resources/1642567958890.zip"
+  },
+  "category": 1,
+  "isPaid": true,
+  "price": 4500,
+  "isActive": true,
+  "instructor": 3,
+  "rating": 5,
+  "__v": 0
+},{
+  "_id": 6,
+  "name": "Python for Data Analysis and Visualization",
+  "description": "Python for Finance: Investment Fundamentals & Data Analytics",
+  "courseImage": {
+    "name": "p6.jpg",
+    "url": "http://res.cloudinary.com/da6qjbsjz/image/upload/v1642568538/udemy/instructor3/imagespublic/images/1642568534706.jpg.jpg"
+  },
+  "videos": [
+    {
+      "name": "DE.mp4",
+      "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1642568625/udemy/instructor3/videospublic/videos/1642568534758.mp4.mp4"
+    },
+    {
+      "name": "My Video2.mp4",
+      "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1642568641/udemy/instructor3/videospublic/videos/1642568535119.mp4.mp4"
+    }
+  ],
+  "resources": {
+    "name": "original.zip",
+    "url": "http://res.cloudinary.com/da6qjbsjz/raw/upload/v1642568723/udemy/instructor3/resourcespublic/resources/1642568534709.zip"
+  },
+  "category": 1,
+  "subcategory": 3,
+  "isPaid": true,
+  "price": 4000,
+  "isActive": true,
+  "instructor": 3,
+  "rating": 4,
+  "__v": 0
+},{
+  "_id": 7,
+  "name": "Python and Django Full Stack Web Developer Bootcamp",
+  "description": "Learn to build websites with HTML , CSS , Bootstrap , Javascript , jQuery , Python 3 , and Django!",
+  "courseImage": {
+    "name": "p9.jpg",
+    "url": "http://res.cloudinary.com/da6qjbsjz/image/upload/v1642577442/udemy/instructor3/imagespublic/images/1642577439650.jpg.jpg"
+  },
+  "videos": [
+    {
+      "name": "My Video2.mp4",
+      "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1642577468/udemy/instructor3/videospublic/videos/1642577439659.mp4.mp4"
+    },
+    {
+      "name": "My Video3.mp4",
+      "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1642577526/udemy/instructor3/videospublic/videos/1642577439737.mp4.mp4"
+    }
+  ],
+  "resources": {
+    "name": "original (1).zip",
+    "url": "http://res.cloudinary.com/da6qjbsjz/raw/upload/v1642577529/udemy/instructor3/resourcespublic/resources/1642577439657.zip"
+  },
+  "category": 1,
+  "subcategory": 1,
+  "isPaid": true,
+  "price": 3500,
+  "isActive": true,
+  "instructor": 3,
+  "rating": 0,
+  "__v": 0
+},{
+  "_id": 8,
+  "name": "Rest API with flask and python",
+  "description": "Build professional REST APIs with Python, Flask, Flask-RESTful, and Flask-SQLAlchemy",
+  "courseImage": {
+    "name": "p13.jpg",
+    "url": "http://res.cloudinary.com/da6qjbsjz/image/upload/v1644479319/udemy/instructor3/imagespublic/images/1644479317861.jpg.jpg"
+  },
+  "videos": [
+    {
+      "name": "My Video2.mp4",
+      "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1642577811/udemy/instructor3/videospublic/videos/1642577705808.mp4.mp4"
+    },
+    {
+      "name": "My Video3.mp4",
+      "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1642577860/udemy/instructor3/videospublic/videos/1642577705860.mp4.mp4"
+    }
+  ],
+  "resources": {
+    "name": "original (1).zip",
+    "url": "http://res.cloudinary.com/da6qjbsjz/raw/upload/v1642577863/udemy/instructor3/resourcespublic/resources/1642577705806.zip"
+  },
+  "category": 1,
+  "subcategory": 2,
+  "isPaid": true,
+  "price": 3000,
+  "isActive": true,
+  "instructor": 3,
+  "rating": 0,
+  "__v": 0
+},{
+  "_id": 9,
+  "name": "Python and Flask Bootcamp: Create Websites using Flask!",
+  "description": "Create awesome websites using the powerful Flask framework for Python!",
+  "courseImage": {
+    "name": "p14.jpg",
+    "url": "http://res.cloudinary.com/da6qjbsjz/image/upload/v1642577961/udemy/instructor3/imagespublic/images/1642577958141.jpg.jpg"
+  },
+  "videos": [
+    {
+      "name": "DE.mp4",
+      "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1642578261/udemy/instructor3/videospublic/videos/1642577958148.mp4.mp4"
+    },
+    {
+      "name": "My Video3.mp4",
+      "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1642578551/udemy/instructor3/videospublic/videos/1642577958469.mp4.mp4"
+    }
+  ],
+  "resources": {
+    "name": "original (1).zip",
+    "url": "http://res.cloudinary.com/da6qjbsjz/raw/upload/v1642578570/udemy/instructor3/resourcespublic/resources/1642577958144.zip"
+  },
+  "category": 1,
+  "subcategory": 2,
+  "isPaid": true,
+  "price": 4000,
+  "isActive": true,
+  "instructor": 3,
+  "rating": 0,
+  "__v": 0
+},{
+  "_id": 10,
+  "name": "Python Django - The Practical Guide",
+  "description": "Learn how to build web applications and websites with Python and the Django framework",
+  "courseImage": {
+    "name": "p11.jpg",
+    "url": "http://res.cloudinary.com/da6qjbsjz/image/upload/v1642578649/udemy/instructor3/imagespublic/images/1642578646695.jpg.jpg"
+  },
+  "videos": [
+    {
+      "name": "DE.mp4",
+      "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1642578880/udemy/instructor3/videospublic/videos/1642578646701.mp4.mp4"
+    },
+    {
+      "name": "My Video3.mp4",
+      "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1642578979/udemy/instructor3/videospublic/videos/1642578646894.mp4.mp4"
+    }
+  ],
+  "resources": {
+    "name": "original (1).zip",
+    "url": "http://res.cloudinary.com/da6qjbsjz/raw/upload/v1642578985/udemy/instructor3/resourcespublic/resources/1642578646698.zip"
+  },
+  "category": 1,
+  "subcategory": 1,
+  "isPaid": true,
+  "price": 5000,
+  "isActive": true,
+  "instructor": 3,
+  "rating": 0,
+  "__v": 0
+},{
+  "_id": 11,
+  "name": "Python Django 2022 - Complete Course",
+  "description": "Learn to build awesome websites with Python & Django! Create readl world inventory system",
+  "courseImage": {
+    "name": "p12.jpg",
+    "url": "http://res.cloudinary.com/da6qjbsjz/image/upload/v1642579185/udemy/instructor3/imagespublic/images/1642579181763.jpg.jpg"
+  },
+  "videos": [
+    {
+      "name": "DE.mp4",
+      "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1642579657/udemy/instructor3/videospublic/videos/1642579181769.mp4.mp4"
+    },
+    {
+      "name": "My Video2.mp4",
+      "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1642579731/udemy/instructor3/videospublic/videos/1642579181930.mp4.mp4"
+    },
+    {
+      "name": "My Video3.mp4",
+      "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1642579849/udemy/instructor3/videospublic/videos/1642579181962.mp4.mp4"
+    }
+  ],
+  "resources": {
+    "name": "original (1).zip",
+    "url": "http://res.cloudinary.com/da6qjbsjz/raw/upload/v1642579856/udemy/instructor3/resourcespublic/resources/1642579181767.zip"
+  },
+  "category": 1,
+  "subcategory": 1,
+  "isPaid": true,
+  "price": 5000,
+  "isActive": true,
+  "instructor": 3,
+  "rating": 4.5,
+  "__v": 0,
+  "offerPrice": 3000
+},{
+  "_id": 12,
+  "name": "The Complete JavaScript Course 2022: From Zero to Expert!",
+  "description": "The modern JavaScript course for everyone! Master JavaScript with projects, challenges and theory. Many courses in one!",
+  "courseImage": {
+    "name": "j1.jpg",
+    "url": "http://res.cloudinary.com/da6qjbsjz/image/upload/v1642745186/udemy/instructor4/imagespublic/images/1642745182450.jpg.jpg"
+  },
+  "videos": [
+    {
+      "name": "DE.mp4",
+      "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1642745530/udemy/instructor4/videospublic/videos/1642745182454.mp4.mp4"
+    },
+    {
+      "name": "My Video2.mp4",
+      "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1642745588/udemy/instructor4/videospublic/videos/1642745182801.mp4.mp4"
+    },
+    {
+      "name": "My Video3.mp4",
+      "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1642745654/udemy/instructor4/videospublic/videos/1642745183052.mp4.mp4"
+    }
+  ],
+  "resources": {
+    "name": "original (1).zip",
+    "url": "http://res.cloudinary.com/da6qjbsjz/raw/upload/v1642745656/udemy/instructor4/resourcespublic/resources/1642745182452.zip"
+  },
+  "category": 4,
+  "isPaid": true,
+  "price": 2000,
+  "isActive": true,
+  "instructor": 4,
+  "rating": 0,
+  "__v": 0
+},{
+  "_id": 13,
+  "name": "React - The Complete Guide (incl Hooks, React Router, Redux)",
+  "description": "Dive in and learn React.js from scratch! Learn Reactjs, Hooks, Redux, React Routing, Animations, Next.js and way more!",
+  "courseImage": {
+    "name": "j11.jpg",
+    "url": "http://res.cloudinary.com/da6qjbsjz/image/upload/v1642745870/udemy/instructor4/imagespublic/images/1642745868104.jpg.jpg"
+  },
+  "videos": [
+    {
+      "name": "DE.mp4",
+      "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1642746182/udemy/instructor4/videospublic/videos/1642745868114.mp4.mp4"
+    },
+    {
+      "name": "My Video2.mp4",
+      "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1642746223/udemy/instructor4/videospublic/videos/1642745868338.mp4.mp4"
+    },
+    {
+      "name": "My Video3.mp4",
+      "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1642746325/udemy/instructor4/videospublic/videos/1642745868384.mp4.mp4"
+    }
+  ],
+  "resources": {
+    "name": "original (1).zip",
+    "url": "http://res.cloudinary.com/da6qjbsjz/raw/upload/v1642746329/udemy/instructor4/resourcespublic/resources/1642745868107.zip"
+  },
+  "category": 4,
+  "subcategory": 4,
+  "isPaid": true,
+  "price": 4000,
+  "isActive": true,
+  "instructor": 4,
+  "rating": 0,
+  "__v": 0
+},{
+  "_id": 14,
+  "name": "React Tutorial and Projects Course",
+  "description": "Step by Step Learn React.js and Create Interesting Projects",
+  "courseImage": {
+    "name": "j12.jpg",
+    "url": "http://res.cloudinary.com/da6qjbsjz/image/upload/v1642746421/udemy/instructor4/imagespublic/images/1642746414942.jpg.jpg"
+  },
+  "videos": [
+    {
+      "name": "DE.mp4",
+      "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1642746774/udemy/instructor4/videospublic/videos/1642746414949.mp4.mp4"
+    },
+    {
+      "name": "My Video2.mp4",
+      "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1642746915/udemy/instructor4/videospublic/videos/1642746415130.mp4.mp4"
+    },
+    {
+      "name": "My Video3.mp4",
+      "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1642747100/udemy/instructor4/videospublic/videos/1642746415165.mp4.mp4"
+    }
+  ],
+  "resources": {
+    "name": "original (1).zip",
+    "url": "http://res.cloudinary.com/da6qjbsjz/raw/upload/v1642747102/udemy/instructor4/resourcespublic/resources/1642746414944.zip"
+  },
+  "category": 4,
+  "subcategory": 4,
+  "isPaid": false,
+  "isActive": true,
+  "instructor": 4,
+  "rating": 0,
+  "__v": 0
+},{
+  "_id": 15,
+  "name": "NodeJS - The Complete Guide (MVC, REST APIs, GraphQL, Deno)",
+  "description": "Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authentication, use MongoDB, SQL & much more!",
+  "courseImage": {
+    "name": "j13.jpg",
+    "url": "http://res.cloudinary.com/da6qjbsjz/image/upload/v1642747640/udemy/instructor4/imagespublic/images/1642747632839.jpg.jpg"
+  },
+  "videos": [
+    {
+      "name": "DE.mp4",
+      "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1642747935/udemy/instructor4/videospublic/videos/1642747632844.mp4.mp4"
+    },
+    {
+      "name": "My Video2.mp4",
+      "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1642747990/udemy/instructor4/videospublic/videos/1642747633127.mp4.mp4"
+    },
+    {
+      "name": "My Video3.mp4",
+      "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1642748152/udemy/instructor4/videospublic/videos/1642747633201.mp4.mp4"
+    }
+  ],
+  "resources": {
+    "name": "original (1).zip",
+    "url": "http://res.cloudinary.com/da6qjbsjz/raw/upload/v1642748155/udemy/instructor4/resourcespublic/resources/1642747632841.zip"
+  },
+  "category": 4,
+  "subcategory": 5,
+  "isPaid": true,
+  "price": 5000,
+  "isActive": true,
+  "instructor": 4,
+  "rating": 0,
+  "__v": 0
+},{
+  "_id": 16,
+  "name": "Vue - The Complete Guide (w/ Router, Vuex, Composition API)",
+  "description": "Vue.js is an awesome JavaScript Framework for building Frontend Applications! VueJS mixes the Best of Angular + React!",
+  "courseImage": {
+    "name": "j15.jpg",
+    "url": "http://res.cloudinary.com/da6qjbsjz/image/upload/v1642750259/udemy/instructor4/imagespublic/images/1642750257472.jpg.jpg"
+  },
+  "videos": [
+    {
+      "name": "DE.mp4",
+      "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1642750650/udemy/instructor4/videospublic/videos/1642750257476.mp4.mp4"
+    },
+    {
+      "name": "My Video2.mp4",
+      "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1642750721/udemy/instructor4/videospublic/videos/1642750257711.mp4.mp4"
+    },
+    {
+      "name": "My Video3.mp4",
+      "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1642750797/udemy/instructor4/videospublic/videos/1642750257738.mp4.mp4"
+    }
+  ],
+  "resources": {
+    "name": "original (1).zip",
+    "url": "http://res.cloudinary.com/da6qjbsjz/raw/upload/v1642750799/udemy/instructor4/resourcespublic/resources/1642750257475.zip"
+  },
+  "category": 4,
+  "subcategory": 6,
+  "isPaid": true,
+  "price": 5000,
+  "isActive": true,
+  "instructor": 4,
+  "rating": 5,
+  "__v": 0,
+  "offerPrice": 3000
+},{
+  "_id": 17,
+  "name": "Build Web Apps with Vue JS 3 & Firebase",
+  "description": "Learn Vue JS 3 & Firebase by creating & deploying dynamic web apps (including Authentication).",
+  "courseImage": {
+    "name": "j16.jpg",
+    "url": "http://res.cloudinary.com/da6qjbsjz/image/upload/v1642750863/udemy/instructor4/imagespublic/images/1642750861611.jpg.jpg"
+  },
+  "videos": [
+    {
+      "name": "DE.mp4",
+      "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1642751203/udemy/instructor4/videospublic/videos/1642750861615.mp4.mp4"
+    },
+    {
+      "name": "My Video2.mp4",
+      "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1642751246/udemy/instructor4/videospublic/videos/1642750861806.mp4.mp4"
+    },
+    {
+      "name": "My Video3.mp4",
+      "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1642751306/udemy/instructor4/videospublic/videos/1642750861829.mp4.mp4"
+    }
+  ],
+  "resources": {
+    "name": "original (1).zip",
+    "url": "http://res.cloudinary.com/da6qjbsjz/raw/upload/v1642751308/udemy/instructor4/resourcespublic/resources/1642750861613.zip"
+  },
+  "category": 4,
+  "subcategory": 6,
+  "isPaid": false,
+  "isActive": true,
+  "instructor": 4,
+  "rating": 0,
+  "__v": 0
+},{
+  "_id": 18,
+  "name": "The Complete Node.js Developer Course (3rd Edition)",
+  "description": "Learn Node.js by building real-world applications with Node JS, Express, MongoDB, Jest, and more!",
+  "courseImage": {
+    "name": "j17.jpg",
+    "url": "http://res.cloudinary.com/da6qjbsjz/image/upload/v1644213390/udemy/instructor3/imagespublic/images/1644213386809.jpg.jpg"
+  },
+  "videos": [
+    {
+      "name": "My Video2.mp4",
+      "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1644213414/udemy/instructor3/videospublic/videos/1644213386817.mp4.mp4"
+    },
+    {
+      "name": "My Video3.mp4",
+      "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1644213449/udemy/instructor3/videospublic/videos/1644213386992.mp4.mp4"
+    }
+  ],
+  "resources": {
+    "name": "original (1).zip",
+    "url": "http://res.cloudinary.com/da6qjbsjz/raw/upload/v1644213451/udemy/instructor3/resourcespublic/resources/1644213386815.zip"
+  },
+  "category": 4,
+  "subcategory": 5,
+  "isPaid": true,
+  "price": 4200,
+  "isActive": true,
+  "instructor": 3,
+  "rating": 0,
+  "__v": 0
+},{
+  "_id": 19,
+  "name": "JavaScript: Understanding the Weird Parts",
+  "description": "An advanced JavaScript course for everyone! Scope, closures, prototypes, 'this', build your own framework, and more.",
+  "courseImage": {
+    "name": "j3.jpg",
+    "url": "http://res.cloudinary.com/da6qjbsjz/image/upload/v1644411050/udemy/instructor4/imagespublic/images/1644411049285.jpg.jpg"
+  },
+  "videos": [
+    {
+      "name": "My Video2.mp4",
+      "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1644410483/udemy/instructor4/videospublic/videos/1644410435513.mp4.mp4"
+    },
+    {
+      "name": "My Video3.mp4",
+      "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1644410545/udemy/instructor4/videospublic/videos/1644410435874.mp4.mp4"
+    }
+  ],
+  "resources": {
+    "name": "original (1).zip",
+    "url": "http://res.cloudinary.com/da6qjbsjz/raw/upload/v1644410547/udemy/instructor4/resourcespublic/resources/1644410435511.zip"
+  },
+  "category": 4,
+  "isPaid": false,
+  "isActive": true,
+  "instructor": 4,
+  "rating": 0,
+  "__v": 0
+},{
+  "_id": 20,
+  "name": "Ultimate AWS Certified Solutions Architect Associate 2022",
+  "description": "This AWS Certified Solutions Architect Associate course is different from the other ones you'll find on Udemy. Dare I say, better (but you'll judge!)\n\nWe will spend over three hours discussing solution architecture on AWS in depth. \n\nIt covers in-depth all the new topics on the AWS Certified Solutions Architect Associate SAA-C02 exam\n\nIt's packed with practical knowledge on how to use AWS inside and out as a solutions architect\n\nIt teaches you how to prepare for the AWS exam AND how to prepare for the real world\n\nIt's a logical progression of topics, not a laundry list of random services\n\nIt's fast-paced and to the point\n\nIt has professional subtitles\n\nAll 500+ slides available as downloadable PDF",
+  "courseImage": {
+    "name": "a1.jpg",
+    "url": "http://res.cloudinary.com/da6qjbsjz/image/upload/v1644495827/udemy/instructor4/imagespublic/images/1644495824887.jpg.jpg"
+  },
+  "videos": [
+    {
+      "name": "My Video2.mp4",
+      "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1644495913/udemy/instructor4/videospublic/videos/1644495824894.mp4.mp4"
+    },
+    {
+      "name": "My Video3.mp4",
+      "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1644496082/udemy/instructor4/videospublic/videos/1644495825396.mp4.mp4"
+    }
+  ],
+  "resources": {
+    "name": "original (1).zip",
+    "url": "http://res.cloudinary.com/da6qjbsjz/raw/upload/v1644496085/udemy/instructor4/resourcespublic/resources/1644495824892.zip"
+  },
+  "category": 6,
+  "isPaid": true,
+  "price": 2500,
+  "isActive": true,
+  "instructor": 4,
+  "rating": 0,
+  "__v": 0
+},{
+  "_id": 21,
+  "name": "Build Responsive Real-World Websites with HTML and CSS",
+  "description": "Learn modern HTML5, CSS3 and web design by building a stunning website for your portfolio! Includes flexbox and CSS Grid",
+  "courseImage": {
+    "name": "w1.jpg",
+    "url": "http://res.cloudinary.com/da6qjbsjz/image/upload/v1644496866/udemy/instructor4/imagespublic/images/1644496864271.jpg.jpg"
+  },
+  "videos": [
+    {
+      "name": "My Video2.mp4",
+      "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1644496927/udemy/instructor4/videospublic/videos/1644496864282.mp4.mp4"
+    },
+    {
+      "name": "My Video3.mp4",
+      "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1644497010/udemy/instructor4/videospublic/videos/1644496864360.mp4.mp4"
+    }
+  ],
+  "resources": {
+    "name": "original (1).zip",
+    "url": "http://res.cloudinary.com/da6qjbsjz/raw/upload/v1644497013/udemy/instructor4/resourcespublic/resources/1644496864275.zip"
+  },
+  "category": 3,
+  "subcategory": 8,
+  "isPaid": true,
+  "price": 500,
+  "isActive": true,
+  "instructor": 4,
+  "rating": 0,
+  "__v": 0
+},{
+  "_id": 22,
+  "name": "HTML5 - From Basics to Advanced level (2021)",
+  "description": "A beginner's guide for HTML5. Learn all concepts of HTML5 (with hands-on assignments and projects.)",
+  "courseImage": {
+    "name": "h1.jpg",
+    "url": "http://res.cloudinary.com/da6qjbsjz/image/upload/v1644497550/udemy/instructor4/imagespublic/images/1644497548828.jpg.jpg"
+  },
+  "videos": [
+    {
+      "name": "My Video2.mp4",
+      "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1644497626/udemy/instructor4/videospublic/videos/1644497548842.mp4.mp4"
+    },
+    {
+      "name": "My Video3.mp4",
+      "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1644497748/udemy/instructor4/videospublic/videos/1644497548900.mp4.mp4"
+    }
+  ],
+  "resources": {
+    "name": "original (1).zip",
+    "url": "http://res.cloudinary.com/da6qjbsjz/raw/upload/v1644497753/udemy/instructor4/resourcespublic/resources/1644497548839.zip"
+  },
+  "category": 3,
+  "subcategory": 7,
+  "isPaid": false,
+  "isActive": true,
+  "instructor": 4,
+  "rating": 0,
+  "__v": 0
+},{
+  "_id": 23,
+  "name": "demo course",
+  "description": "description",
+  "courseImage": {
+    "name": "p4.jpg",
+    "url": "http://res.cloudinary.com/da6qjbsjz/image/upload/v1644992473/udemy/instructor3/imagespublic/images/1644992471704.jpg.jpg"
+  },
+  "videos": [
+    {
+      "name": "My Video2.mp4",
+      "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1644992601/udemy/instructor3/videospublic/videos/1644992471713.mp4.mp4"
+    },
+    {
+      "name": "My Video3.mp4",
+      "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1644992646/udemy/instructor3/videospublic/videos/1644992471879.mp4.mp4"
+    }
+  ],
+  "resources": {
+    "name": "original (1).zip",
+    "url": "http://res.cloudinary.com/da6qjbsjz/raw/upload/v1644992649/udemy/instructor3/resourcespublic/resources/1644992471707.zip"
+  },
+  "category": 1,
+  "isPaid": false,
+  "isActive": true,
+  "instructor": 3,
+  "rating": 0,
+  "__v": 0
+}]

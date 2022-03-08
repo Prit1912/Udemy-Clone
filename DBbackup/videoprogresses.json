@@ -1,0 +1,127 @@
+[{
+  "_id": {
+    "$oid": "620e4dc9b375e9d6ddb825b6"
+  },
+  "user": 5,
+  "courses": [
+    {
+      "courseId": 4,
+      "videos": [
+        {
+          "name": "DE.mp4",
+          "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1642509818/udemy/instructor3/videospublic/videos/1642509667864.mp4.mp4",
+          "progressPer": 19
+        },
+        {
+          "name": "My Video2.mp4",
+          "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1642509850/udemy/instructor3/videospublic/videos/1642509668176.mp4.mp4",
+          "progressPer": 32
+        },
+        {
+          "name": "My Video3.mp4",
+          "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1642509887/udemy/instructor3/videospublic/videos/1642509668221.mp4.mp4",
+          "progressPer": 27
+        }
+      ],
+      "_id": {
+        "$oid": "620e4dc9b375e9d6ddb825b7"
+      }
+    },
+    {
+      "courseId": 16,
+      "videos": [
+        {
+          "name": "DE.mp4",
+          "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1642750650/udemy/instructor4/videospublic/videos/1642750257476.mp4.mp4",
+          "progressPer": 21
+        },
+        {
+          "name": "My Video2.mp4",
+          "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1642750721/udemy/instructor4/videospublic/videos/1642750257711.mp4.mp4",
+          "progressPer": 0
+        },
+        {
+          "name": "My Video3.mp4",
+          "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1642750797/udemy/instructor4/videospublic/videos/1642750257738.mp4.mp4",
+          "progressPer": 0
+        }
+      ],
+      "_id": {
+        "$oid": "620e50d1b375e9d6ddb826eb"
+      }
+    },
+    {
+      "courseId": 7,
+      "videos": [
+        {
+          "name": "My Video2.mp4",
+          "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1642577468/udemy/instructor3/videospublic/videos/1642577439659.mp4.mp4",
+          "progressPer": 100
+        },
+        {
+          "name": "My Video3.mp4",
+          "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1642577526/udemy/instructor3/videospublic/videos/1642577439737.mp4.mp4",
+          "progressPer": 100
+        }
+      ],
+      "_id": {
+        "$oid": "620f21c80b50f8d920a49290"
+      }
+    }
+  ],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "620e53e4bc0ad637116d72cd"
+  },
+  "user": 6,
+  "courses": [
+    {
+      "courseId": 1,
+      "videos": [
+        {
+          "name": "My Video2.mp4",
+          "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1645159293/udemy/instructor3/videospublic/videos/1645159106619.mp4.mp4",
+          "progressPer": 12
+        },
+        {
+          "name": "ENotes.mp4",
+          "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1642497991/udemy/instructor3/videospublic/videos/1642497933070.mp4.mp4",
+          "progressPer": 8
+        },
+        {
+          "name": "My Video3.mp4",
+          "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1644321530/udemy/instructor1/videospublic/videos/1644321512478.mp4.mp4",
+          "progressPer": 0
+        }
+      ],
+      "_id": {
+        "$oid": "620e53e4bc0ad637116d72ce"
+      }
+    },
+    {
+      "courseId": 11,
+      "videos": [
+        {
+          "name": "DE.mp4",
+          "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1642579657/udemy/instructor3/videospublic/videos/1642579181769.mp4.mp4",
+          "progressPer": 18
+        },
+        {
+          "name": "My Video2.mp4",
+          "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1642579731/udemy/instructor3/videospublic/videos/1642579181930.mp4.mp4",
+          "progressPer": 100
+        },
+        {
+          "name": "My Video3.mp4",
+          "url": "http://res.cloudinary.com/da6qjbsjz/video/upload/v1642579849/udemy/instructor3/videospublic/videos/1642579181962.mp4.mp4",
+          "progressPer": 0
+        }
+      ],
+      "_id": {
+        "$oid": "620e542e79c8173f679af045"
+      }
+    }
+  ],
+  "__v": 0
+}]

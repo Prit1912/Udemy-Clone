@@ -1,0 +1,53 @@
+[{
+  "_id": 1,
+  "offerName": "offer1",
+  "courses": [
+    {
+      "id": 16,
+      "name": "Vue - The Complete Guide (w/ Router, Vuex, Composition API)"
+    },
+    {
+      "id": 11,
+      "name": "Python Django 2022 - Complete Course"
+    },
+    {
+      "id": 1,
+      "name": "Python Bootcamp From Zero to Advance"
+    }
+  ],
+  "discount": 40,
+  "isLive": true,
+  "__v": 0
+},{
+  "_id": 2,
+  "offerName": "offer2",
+  "courses": [
+    {
+      "id": 11,
+      "name": "Python Django 2022 - Complete Course"
+    },
+    {
+      "id": 2,
+      "name": "Hands - On Python & R In Data Science"
+    }
+  ],
+  "discount": 50,
+  "isLive": false,
+  "__v": 0
+},{
+  "_id": 3,
+  "offerName": "offer3",
+  "courses": [
+    {
+      "id": 2,
+      "name": "Hands - On Python & R In Data Science"
+    },
+    {
+      "id": 7,
+      "name": "Python and Django Full Stack Web Developer Bootcamp"
+    }
+  ],
+  "discount": 30,
+  "isLive": false,
+  "__v": 0
+}]

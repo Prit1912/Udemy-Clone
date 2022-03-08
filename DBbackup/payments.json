@@ -1,0 +1,71 @@
+[{
+  "_id": 1,
+  "payment_mode": "upi",
+  "amount": 5000,
+  "payment_status": "Success",
+  "payment_date": {
+    "$date": "2021-12-18T18:30:00Z"
+  },
+  "user": 5,
+  "courses": [
+    4,
+    5,
+    6
+  ],
+  "__v": 0
+},{
+  "_id": 2,
+  "payment_mode": "netBanking",
+  "amount": 4000,
+  "payment_status": "Success",
+  "payment_date": {
+    "$date": "2021-12-30T18:30:00Z"
+  },
+  "user": 6,
+  "courses": [
+    1,
+    2,
+    7
+  ],
+  "__v": 0
+},{
+  "_id": 3,
+  "payment_mode": "debitCard",
+  "amount": 6000,
+  "payment_status": "Success",
+  "payment_date": {
+    "$date": "2020-12-31T18:30:00Z"
+  },
+  "user": 6,
+  "courses": [
+    3,
+    4
+  ],
+  "__v": 0
+},{
+  "_id": 4,
+  "payment_mode": "creditCard",
+  "amount": 5500,
+  "payment_status": "Pending",
+  "payment_date": {
+    "$date": "2021-01-01T18:30:00Z"
+  },
+  "user": 6,
+  "courses": [
+    5
+  ],
+  "__v": 0
+},{
+  "_id": 5,
+  "payment_mode": "creditCard",
+  "amount": 5500,
+  "payment_status": "Failed",
+  "payment_date": {
+    "$date": "2021-01-01T18:30:00Z"
+  },
+  "user": 5,
+  "courses": [
+    10
+  ],
+  "__v": 0
+}]

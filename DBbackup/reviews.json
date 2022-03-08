@@ -1,0 +1,46 @@
+[{
+  "_id": {
+    "$oid": "61ea65d8ae45b8742ebcc518"
+  },
+  "user": 5,
+  "course": 11,
+  "rating": 5,
+  "review": "Very good course",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ea66bdae45b8742ebcc529"
+  },
+  "user": 6,
+  "course": 11,
+  "rating": 4,
+  "review": "Recommandable course!!",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61eb98e61f57574e9cbfd816"
+  },
+  "user": 5,
+  "course": 6,
+  "rating": 4,
+  "review": "Nice explaination",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6204e1f0446bf1a716f0cc5a"
+  },
+  "user": 5,
+  "course": 16,
+  "rating": 5,
+  "review": "Good course to purchase",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62051352058fc4e0f62f05f1"
+  },
+  "user": 5,
+  "course": 5,
+  "rating": 5,
+  "review": "Good course",
+  "__v": 0
+}]

@@ -1,0 +1,46 @@
+[{
+  "_id": 1,
+  "name": "Django",
+  "category": 1,
+  "__v": 0
+},{
+  "_id": 2,
+  "name": "Flask",
+  "category": 1,
+  "__v": 0
+},{
+  "_id": 3,
+  "name": "Data Science",
+  "category": 1,
+  "__v": 0
+},{
+  "_id": 4,
+  "name": "ReactJS",
+  "category": 4,
+  "__v": 0
+},{
+  "_id": 5,
+  "name": "NodeJS",
+  "category": 4,
+  "__v": 0
+},{
+  "_id": 6,
+  "name": "VueJS",
+  "category": 4,
+  "__v": 0
+},{
+  "_id": 7,
+  "name": "HTML",
+  "category": 3,
+  "__v": 0
+},{
+  "_id": 8,
+  "name": "CSS",
+  "category": 3,
+  "__v": 0
+},{
+  "_id": 11,
+  "name": "Laravel",
+  "category": 9,
+  "__v": 0
+}]
